@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 
 @layer base {
   :root {
@@ -33,7 +31,6 @@ body {
     --radius: 0.4rem;
   }
 }
-
 
 @layer base {
   * {

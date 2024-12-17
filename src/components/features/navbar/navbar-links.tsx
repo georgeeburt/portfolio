@@ -5,7 +5,7 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
   NavigationMenuContent,
-  NavigationMenuLink
+  NavigationMenuLink,
 } from '../../ui/navigation-menu';
 
 export default function NavbarLinks() {

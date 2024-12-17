@@ -6,7 +6,7 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
   NavigationMenuContent,
-  NavigationMenuLink
+  NavigationMenuLink,
 } from '../../ui/navigation-menu';
 import NavbarIcons from './navbar-icons';
 import NavbarLinks from './navbar-links';
@@ -23,7 +23,7 @@ export default function Navbar() {
         priority
       />
 
-      <div className='flex items-center gap-8 sm:16px lg:16px'>
+      <div className="flex items-center gap-8 sm:16px lg:16px">
         <NavbarLinks />
         <NavbarIcons />
       </div>
