@@ -1,6 +1,7 @@
+import Navbar from "@/components/features/navbar/navbar";
 import { Space_Grotesk } from "next/font/google";
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 
 const oxanium = Space_Grotesk({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${oxanium.className} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
