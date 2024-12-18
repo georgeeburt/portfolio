@@ -1,9 +1,9 @@
 import Navbar from '@/components/features/navbar/navbar';
-import { Space_Grotesk } from 'next/font/google';
+import { Oxanium } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 
-const oxanium = Space_Grotesk({
+const oxanium = Oxanium({
   subsets: ['latin'],
 });
 
