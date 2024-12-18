@@ -1,4 +1,4 @@
-import Navbar from '@/components/features/navbar/navbar';
+import Navbar from '@/components/navbar/navbar';
 import { Oxanium } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${oxanium.className} antialiased`}>
+      <body
+        className={`${oxanium.className} overflow-x-hidden antialiased`}
+      >
         <Navbar />
         {children}
       </body>
