@@ -18,7 +18,7 @@ export default function Card({
       viewport={{
         margin: '-100px',
       }}
-      className="flex flex-col py-8 px-8 relative rounded-lg backdrop-blur-md bg-white/[3%] border border-white/10 shadow-lg"
+      className="py-8 px-8 relative rounded-lg backdrop-blur-md bg-white/[3%] border border-white/10 shadow-lg"
     >
       {children}
     </motion.section>

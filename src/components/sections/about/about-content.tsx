@@ -8,8 +8,7 @@ export default function AboutContent() {
   };
   return (
     <Card>
-      <div className="flex flex-col gap-6 relative py-8 z-10">
-        <h2 className="text-[3rem] font-bold">About Me</h2>
+        <h2 className="text-[3rem] font-semibold">About Me</h2>
         <p>
           {content.intro}
           <br />
@@ -19,7 +18,7 @@ export default function AboutContent() {
           <br />
           {content.web3Experience}
         </p>
-      </div>
+
     </Card>
   );
 }
