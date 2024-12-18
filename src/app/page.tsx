@@ -8,14 +8,14 @@ export default function RootContent() {
   return (
     <Container>
       <main>
-        <section className="min-h-[calc(100vh-80px)] sticky top-0 pt-48">
+        <section className="min-h-[calc(100vh-80px)] h-screen sticky top-0 pt-48">
           <HeroContent />
           <ScrollCue />
         </section>
-        <section className='py-20'>
+        <section id='about' className='py-20'>
           <AboutContent />
         </section>
-        <section className='py-20'>
+        <section id='skills' className='py-20'>
           <SkillsContent />
         </section>
       </main>
