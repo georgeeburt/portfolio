@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Typer from '@/components/typer';
+import Typer from '@/components/sections/hero/typer';
 
 export default function HeroContent() {
   const { scrollY } = useScroll();
