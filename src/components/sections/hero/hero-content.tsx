@@ -12,12 +12,9 @@ export default function HeroContent() {
     { clamp: false }
   );
 
-  const y = useTransform(
-    scrollY,
-    [0, 800],
-    [0, 100],
-    { clamp: false }
-  );
+  const y = useTransform(scrollY, [0, 800], [0, 100], {
+    clamp: false,
+  });
 
   return (
     <motion.div

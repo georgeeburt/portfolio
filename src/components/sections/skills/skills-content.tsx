@@ -10,7 +10,12 @@ export default function SkillsContent() {
       <h3 className="text-[1.5rem] font-semibold">Tech Stack</h3>
       <div className="flex flex-wrap gap-4 justify-evenly items-center">
         {Object.values(SKILLS).map((skill) => (
-          <Link href={skill.docsUrl} target="_blank" rel="noopener noreferrer" key={skill.label}>
+          <Link
+            href={skill.docsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={skill.label}
+          >
             <Image
               height={30}
               width={30}

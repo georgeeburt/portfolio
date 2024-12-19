@@ -8,16 +8,16 @@ body {
 
 @layer base {
   :root {
-    --background: 265, 100%, 6%;
+    --background: 265 100% 6%;
     --foreground: 0 0% 100%;
-    --navbar-background: 265, 100%, 4%;
+    --navbar-background: 265 100% 4%;
     --popover: 238 0% 13%;
     --popover-foreground: 0 0% 100%;
-    --primary: 246 54% 73%;
+    --primary: 251 100% 23%;
     --primary-foreground: 0 0% 98%;
     --secondary: 246 54% 73%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
+    --muted: 251, 0%, 82%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 246 54% 73%;
     --accent-foreground: 240 5.9% 10%;
