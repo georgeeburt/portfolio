@@ -1,4 +1,4 @@
-import Container from '@/components/container';
+import Container from '@/components/layout/container';
 import HeroContent from '@/components/sections/hero/hero-content';
 import AboutContent from '@/components/sections/about/about-content';
 import SkillsContent from '@/components/sections/skills/skills-content';

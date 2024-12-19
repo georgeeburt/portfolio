@@ -3,7 +3,7 @@ import Card from '@/components/ui/card';
 export default function AboutContent() {
   const content = {
     intro:
-      "Hi, I'm George, a Full-stack Developer from England, United Kingdom, passionate about designing and building scalable, efficient applications. My journey with coding began during my secondary school years, where I first discovered my passion for programming through Computer Science and Python. I thrive on solving complex problems and delivering meaningful solutions.",
+      "Hi, I'm George, a Full-stack Developer from England, United Kingdom, passionate about designing and building scalable, efficient applications. My journey with coding first began during my secondary school years, where I first discovered my passion for programming through Computer Science and Python. I thrive on solving complex problems and delivering meaningful solutions.",
     experience:
       'Before transitioning into development, I managed key operations in a construction industry business, where I honed my problem-solving, communication, and leadership skills. These experiences now shape how I approach creating innovative and practical applications today.',
     web3Experience:

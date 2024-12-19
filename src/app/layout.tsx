@@ -1,4 +1,4 @@
-import Navbar from '@/components/navbar/navbar';
+import Navbar from '@/components/layout/navbar/navbar';
 import { Oxanium } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
