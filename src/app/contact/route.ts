@@ -3,13 +3,16 @@ import { NextRequest } from 'next/server';
 export async function POST(request: NextRequest): Promise<Response> {
   try {
     const { name, email, message } = await request.json();
+    console.log('name:', name);
+    console.log('email', email);
+    console.log('message', message);
 
-    if (!name || !email || message) {
+    if (!name || !email || !message) {
       return new Response(
         JSON.stringify({
-          message: 'Name, email and message are all required',
-          status: 400,
-        })
+          message: 'Name, email, and message are all required',
+        }),
+        { status: 400 }
       );
     }
 

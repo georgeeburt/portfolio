@@ -102,6 +102,6 @@ export const SECONDARY_SKILLS: Record<string, Skill> = {
   github: {
     label: 'GitHub',
     image: '/images/skills/github.svg',
-    url: 'https://github.com/'
-  }
+    url: 'https://github.com/',
+  },
 };

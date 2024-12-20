@@ -14,11 +14,14 @@ export default function ContactContent() {
       </p>
       <div className="flex flex-wrap lg:flex justify-between gap-12">
         <ContactForm />
-        <div className='flex flex-col flex-wrap gap-4'>
-          <h3 className='font-semibold'>Connect with me</h3>
-          <SocialCard SocialIcon={Mail} value='georgeeburt@icloud.com' />
-          <SocialCard SocialIcon={SiGithub} value='georgeeburt' />
-          <SocialCard SocialIcon={SiLinkedin} value='george-burt' />
+        <div className="flex flex-col flex-wrap gap-4">
+          <h3 className="font-semibold">Connect with me</h3>
+          <SocialCard
+            SocialIcon={Mail}
+            value="georgeeburt@icloud.com"
+          />
+          <SocialCard SocialIcon={SiGithub} value="georgeeburt" />
+          <SocialCard SocialIcon={SiLinkedin} value="george-burt" />
         </div>
       </div>
     </Card>
