@@ -99,4 +99,9 @@ export const SECONDARY_SKILLS: Record<string, Skill> = {
     image: '/images/skills/aws.svg',
     url: 'https://aws.amazon.com/',
   },
+  github: {
+    label: 'GitHub',
+    image: '/images/skills/github.svg',
+    url: 'https://github.com/'
+  }
 };
