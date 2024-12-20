@@ -4,6 +4,7 @@ import AboutContent from '@/components/sections/about/about-content';
 import SkillsContent from '@/components/sections/skills/skills-content';
 import ScrollCue from '@/components/sections/hero/scroll-cue';
 import BlurBackground from '@/components/blur-background';
+import ContactContent from '@/components/sections/contact/contact-content';
 
 export default function RootContent() {
   return (
@@ -20,6 +21,9 @@ export default function RootContent() {
           </section>
           <section id="skills" className="py-20">
             <SkillsContent />
+          </section>
+          <section id="contact" className="py-20">
+            <ContactContent />
           </section>
         </main>
       </Container>

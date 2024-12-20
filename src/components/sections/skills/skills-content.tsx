@@ -8,9 +8,11 @@ import {
 import Marquee from 'react-fast-marquee';
 
 export default function SkillsContent() {
+  const intro = `My journey with coding first began during my secondary school years, where I first discovered my passion for programming through Computer Science and Python.`;
   return (
     <Card>
       <h2 className="text-[3rem] font-semibold">Skills</h2>
+      <p>{intro}</p>
       <h3 className="text-[1.5rem] font-semibold">Tech Stack</h3>
 
       <div>
