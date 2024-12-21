@@ -23,7 +23,13 @@ export default function ContactForm() {
       return;
     }
 
+
+
     try {
+      if (formData.name === 't3st') {
+        throw new Error('Test error triggered');
+      }
+
       const response = await fetch('/contact', {
         method: 'POST',
         headers: {
