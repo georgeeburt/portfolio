@@ -1,8 +1,8 @@
 import Card from '@/components/ui/card';
-import { Mail } from 'lucide-react';
-import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
 import SocialCard from './social-card';
 import ContactForm from './contact-form';
+import { Mail } from 'lucide-react';
+import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
 
 export default function ContactContent() {
   return (

@@ -1,5 +1,6 @@
 import Navbar from '@/components/layout/navbar/navbar';
 import { Oxanium } from 'next/font/google';
+import { Toaster } from '@/components/ui/toaster';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Toaster />
       </body>
     </html>
   );

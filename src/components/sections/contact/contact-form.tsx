@@ -1,8 +1,10 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function ContactForm() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +13,15 @@ export default function ContactForm() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: 'Missing Required Fields',
+        description: 'Name, email, and message are all required',
+        variant: 'destructive'
+      });
+      return;
+    }
 
     try {
       const response = await fetch('/contact', {
@@ -25,12 +36,21 @@ export default function ContactForm() {
         throw new Error('Failed to submit form');
       }
 
+      toast({
+        title: 'Message sent',
+        description: 'Your message has been successfully sent!',
+      });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'There was an error sending your message, please try again',
+        variant: 'destructive'
+      });
       console.error('Error submitting form:', error);
     }
   };
-  console.log(formData);
+
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -54,9 +74,9 @@ export default function ContactForm() {
           type="text"
           id="name"
           name="name"
+          value={formData.name}
           onChange={handleChange}
-          className="p-1 sm:minw-full min-w-80 lg:w-4/6 outline-zinc-800 bg-white/5 rounded-lg border border-white/10"
-          required
+          className="p-1 lg:w-4/6 outline-zinc-800 bg-white/5 rounded-lg border border-white/10"
         />
       </p>
       <p className="flex flex-col gap-2">
@@ -67,9 +87,9 @@ export default function ContactForm() {
           type="email"
           id="email"
           name="email"
+          value={formData.email}
           onChange={handleChange}
-          className="p-1 sm:w-full min-w-80 lg:w-4/6  outline-zinc-800 bg-white/5 rounded-lg border border-white/10"
-          required
+          className="p-1 lg:w-4/6  outline-zinc-800 bg-white/5 rounded-lg border border-white/10"
         />
       </p>
       <p className="flex flex-col gap-2">
@@ -80,9 +100,9 @@ export default function ContactForm() {
           id="message"
           rows={5}
           name="message"
+          value={formData.message}
           onChange={handleChange}
           className="outline-zinc-800 resize-none bg-white/5 rounded-lg border border-white/10"
-          required
         ></textarea>
       </p>
       <input
