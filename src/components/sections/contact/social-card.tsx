@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function SocialCard({
   SocialIcon,
   href,
-  user,
+  user
 }: {
   SocialIcon: React.ComponentType;
   href: string;

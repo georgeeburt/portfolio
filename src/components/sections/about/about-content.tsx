@@ -7,7 +7,7 @@ export default function AboutContent() {
     experience:
       'Before transitioning into development, I managed key operations in a construction industry business, where I honed my problem-solving, communication, and leadership skills. These experiences now shape how I approach creating innovative and practical applications today.',
     web3Experience:
-      "With 5 years of experience in Web3, particularly on Solana, I've developed a deep understanding of blockchain technologies and decentralized systems. What drives me is continuously expanding my knowledge across different technologies while maintaining a focus on delivering scalable solutions that create real impact.",
+      "With 5 years of experience in Web3, particularly on Solana, I've developed a deep understanding of blockchain technologies and decentralized systems. What drives me is continuously expanding my knowledge across different technologies while maintaining a focus on delivering scalable solutions that create real impact."
   };
   return (
     <Card>

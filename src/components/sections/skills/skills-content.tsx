@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Card from '@/components/ui/card';
 import {
   SKILLS,
-  SECONDARY_SKILLS,
+  SECONDARY_SKILLS
 } from '@/lib/constants/skills-constants';
 import Marquee from 'react-fast-marquee';
 

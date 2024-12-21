@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    message: ''
   });
 
   const handleSubmit = async (event: FormEvent) => {
@@ -18,7 +18,7 @@ export default function ContactForm() {
       toast({
         title: 'Missing Required Fields',
         description: 'Name, email, and message are all required',
-        variant: 'destructive',
+        variant: 'destructive'
       });
       return;
     }
@@ -27,9 +27,9 @@ export default function ContactForm() {
       const response = await fetch('/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
 
       if (!response.ok) {
@@ -38,7 +38,7 @@ export default function ContactForm() {
 
       toast({
         title: 'Message sent',
-        description: 'Your message has been successfully sent!',
+        description: 'Your message has been successfully sent!'
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
@@ -46,7 +46,7 @@ export default function ContactForm() {
         title: 'Error',
         description:
           'There was an error sending your message, please try again',
-        variant: 'destructive',
+        variant: 'destructive'
       });
       console.error('Error submitting form:', error);
     }
@@ -57,7 +57,7 @@ export default function ContactForm() {
   ) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
 

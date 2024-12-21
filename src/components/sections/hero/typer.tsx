@@ -7,7 +7,7 @@ export default function Typer() {
     'TypeScript & JavaScript',
     'React & Next.js',
     'Front-end & Back-end development',
-    'Web3',
+    'Web3'
   ];
   return (
     <Typewriter

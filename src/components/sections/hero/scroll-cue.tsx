@@ -20,7 +20,7 @@ export default function ScrollCue() {
     };
 
     window.addEventListener('scroll', handleScroll, {
-      passive: true,
+      passive: true
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

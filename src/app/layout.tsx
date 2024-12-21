@@ -5,17 +5,17 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const oxanium = Oxanium({
-  subsets: ['latin'],
+  subsets: ['latin']
 });
 
 export const metadata: Metadata = {
   title: 'Burt Software Solutions',
   description:
-    'Professional software development and consulting services for modern businesses',
+    'Professional software development and consulting services for modern businesses'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

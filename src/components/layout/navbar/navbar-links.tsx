@@ -3,7 +3,7 @@ import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
-  NavigationMenuLink,
+  NavigationMenuLink
 } from '../../ui/navigation-menu';
 import { navLinks } from '@/lib/constants/navigation-constants';
 
