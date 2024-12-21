@@ -14,6 +14,7 @@ test.describe('Contact Form', () => {
       'textarea[name="message"]',
       'Hello, this is a test message to George!'
     );
+
     await page.click('input[type="submit"]', { timeout: 10000 });
 
     const toastLocator = page.locator(
@@ -25,6 +26,21 @@ test.describe('Contact Form', () => {
     await expect(toastLocator).toContainText(
       'Your message has been successfully sent!'
     );
+  });
+
+  test('should clear user input on successful form submission', async ({ page }) => {
+    await page.fill('input[name="name"]', 'George Martin Burt');
+    await page.fill('input[name="email"]', 'georgeeburt@icloud.com');
+    await page.fill(
+      'textarea[name="message"]',
+      'Hello, this is a test message to George!'
+    );
+
+    await page.click('input[type="submit"]', { timeout: 10000 });
+
+    await expect(page.locator('input[name="name"]')).toHaveValue('');
+    await expect(page.locator('input[name="email"]')).toHaveValue('');
+    await expect(page.locator('textarea[name="message"]')).toHaveValue('');
   });
 
   test('should show error toast when user misses required fields', async ({
