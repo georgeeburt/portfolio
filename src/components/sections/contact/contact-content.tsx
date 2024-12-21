@@ -1,8 +1,7 @@
 import Card from '@/components/ui/card';
 import SocialCard from './social-card';
 import ContactForm from './contact-form';
-import { Mail } from 'lucide-react';
-import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
+import { contactSocials } from '@/lib/constants/contact-constants';
 
 export default function ContactContent() {
   return (
@@ -16,12 +15,14 @@ export default function ContactContent() {
         <ContactForm />
         <div className="flex flex-col flex-wrap gap-4">
           <h3 className="font-semibold">Connect with me</h3>
-          <SocialCard
-            SocialIcon={Mail}
-            value="georgeeburt@icloud.com"
-          />
-          <SocialCard SocialIcon={SiGithub} value="georgeeburt" />
-          <SocialCard SocialIcon={SiLinkedin} value="george-burt" />
+          {contactSocials.map((social) => (
+            <SocialCard
+              key={social.href}
+              SocialIcon={social.Icon}
+              href={social.href}
+              user={social.user}
+            />
+          ))}
         </div>
       </div>
     </Card>

@@ -18,7 +18,7 @@ export default function ContactForm() {
       toast({
         title: 'Missing Required Fields',
         description: 'Name, email, and message are all required',
-        variant: 'destructive'
+        variant: 'destructive',
       });
       return;
     }
@@ -44,13 +44,13 @@ export default function ContactForm() {
     } catch (error) {
       toast({
         title: 'Error',
-        description: 'There was an error sending your message, please try again',
-        variant: 'destructive'
+        description:
+          'There was an error sending your message, please try again',
+        variant: 'destructive',
       });
       console.error('Error submitting form:', error);
     }
   };
-
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

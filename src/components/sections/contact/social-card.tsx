@@ -1,16 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function SocialCard({
   SocialIcon,
-  value,
+  href,
+  user,
 }: {
   SocialIcon: React.ComponentType;
-  value: string;
+  href: string;
+  user: string;
 }) {
   return (
-    <div className="flex cursor-pointer gap-3 p-2 rounded-lg border border-white/10">
-      <SocialIcon />
-      <p>{value}</p>
-    </div>
+    <Link href={href} target="_blank">
+      <div className="flex cursor-pointer gap-3 p-2 rounded-lg border border-white/10 hover:bg-white/5">
+        <SocialIcon />
+        <p>{user}</p>
+      </div>
+    </Link>
   );
 }
