@@ -1,11 +1,9 @@
 import { NextRequest } from 'next/server';
+import { EmailService } from '@/lib/services/email';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
     const { name, email, message } = await request.json();
-    console.log('name:', name);
-    console.log('email', email);
-    console.log('message', message);
 
     if (!name || !email || !message) {
       return new Response(
@@ -15,6 +13,8 @@ export async function POST(request: NextRequest): Promise<Response> {
         { status: 400 }
       );
     }
+
+    await EmailService.sendContactFormEmail({ name, email, message });
 
     return new Response(JSON.stringify({ message: 'Success' }), {
       status: 200
