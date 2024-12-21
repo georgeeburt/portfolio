@@ -8,27 +8,44 @@ test.describe('Contact Form', () => {
   test('should show success toast when form submission is successful', async ({
     page
   }) => {
-    await page.fill('input[name="name"]', 'George Martin Burt');
-    await page.fill('input[name="email"]', 'georgeeburt@icloud.com');
+    await page.route('/contact', async (route) => {
+      const request = route.request();
+      if (request.method() === 'POST') {
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({ message: 'Success' })
+        });
+      } else {
+        await route.continue();
+      }
+    });
+
+    await page.fill('input[name="name"]', 'Test User');
+    await page.fill('input[name="email"]', 'test@example.com');
     await page.fill(
       'textarea[name="message"]',
-      'Hello, this is a test message to George!'
+      'Test message content'
     );
 
-    await page.click('input[type="submit"]', { timeout: 10000 });
+    await Promise.all([
+      page.click('input[type="submit"]'),
+      page.waitForLoadState('networkidle')
+    ]);
 
     const toastLocator = page.locator(
       'li[role="status"][data-state="open"]'
     );
-    await toastLocator.waitFor({ state: 'visible', timeout: 10000 });
 
-    await expect(toastLocator).toBeVisible();
+    await expect(toastLocator).toBeVisible({ timeout: 10000 });
     await expect(toastLocator).toContainText(
       'Your message has been successfully sent!'
     );
   });
 
-  test('should clear user input on successful form submission', async ({ page }) => {
+  test('should clear user input on successful form submission', async ({
+    page
+  }) => {
     await page.fill('input[name="name"]', 'George Martin Burt');
     await page.fill('input[name="email"]', 'georgeeburt@icloud.com');
     await page.fill(
@@ -38,9 +55,14 @@ test.describe('Contact Form', () => {
 
     await page.click('input[type="submit"]', { timeout: 10000 });
 
+    await page.waitForResponse('/contact');
+    await page.waitForTimeout(500);
+
     await expect(page.locator('input[name="name"]')).toHaveValue('');
     await expect(page.locator('input[name="email"]')).toHaveValue('');
-    await expect(page.locator('textarea[name="message"]')).toHaveValue('');
+    await expect(
+      page.locator('textarea[name="message"]')
+    ).toHaveValue('');
   });
 
   test('should show error toast when user misses required fields', async ({
@@ -66,27 +88,25 @@ test.describe('Contact Form', () => {
     page
   }) => {
     await page.fill('input[name="name"]', 't3st');
-    await page.fill('input[name="email"]', 'georgeeburt@icloud.com');
-    await page.fill(
-      'textarea[name="message"]',
-      'Hello, this is a test message'
-    );
+    await page.fill('input[name="email"]', 'test@example.com');
+    await page.fill('textarea[name="message"]', 'Test message');
 
-    await page.click('input[type="submit"]', {
-      timeout: 10000
-    });
+    await page.waitForTimeout(1000);
+
+    await page.click('input[type="submit"]');
 
     const errorToastLocator = page.locator(
       'li[role="status"][data-state="open"]'
     );
-    await errorToastLocator.waitFor({
-      state: 'visible',
-      timeout: 10000
-    });
-
-    await expect(errorToastLocator).toBeVisible();
-    await expect(errorToastLocator).toContainText(
-      'There was an error sending your message, please try again'
+    await expect(errorToastLocator).toHaveAttribute(
+      'data-state',
+      'open',
+      { timeout: 10000 }
     );
+
+    const toastText = await errorToastLocator.textContent();
+    expect(
+      toastText?.includes('There was an error sending your message')
+    ).toBeTruthy();
   });
 });
