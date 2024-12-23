@@ -17,16 +17,16 @@ export default function RootContent() {
             <HeroContent />
             <ScrollCue />
           </section>
-          <section id="about" className="py-20">
+          <section id="about" className="py-12 md:py-20">
             <AboutContent />
           </section>
-          <section id="skills" className="py-20">
+          <section id="skills" className="py-12 md:py-20">
             <SkillsContent />
           </section>
-          <section id="projects" className="py-20">
+          <section id="projects" className="py-12 md:py-20">
             <ProjectsContent />
           </section>
-          <section id="contact" className="py-20">
+          <section id="contact" className="py-12 md:py-20">
             <ContactContent />
           </section>
         </main>
