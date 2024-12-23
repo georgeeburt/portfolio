@@ -48,17 +48,11 @@ test.describe('Contact Form', () => {
   test('should clear user input on successful form submission', async ({
     page
   }) => {
-    await page.route('/contact', async (route) => {
-      const request = route.request();
-      if (request.method() === 'POST') {
-        await route.fulfill({
-          status: 200,
-          contentType: 'application/json',
-          body: JSON.stringify({ message: 'Success' })
-        });
-      } else {
-        await route.continue();
-      }
+    await page.route('/contact', (route) => {
+      route.fulfill({
+        status: 200,
+        body: JSON.stringify({ message: 'Success' })
+      });
     });
 
     await page.fill('input[name="name"]', 'Test User');
@@ -68,23 +62,17 @@ test.describe('Contact Form', () => {
       'Test message content'
     );
 
-    await Promise.all([
-      page.click('input[type="submit"]'),
-      page.waitForLoadState('networkidle')
-    ]);
-
-    await page.waitForTimeout(500);
-
-    await expect(page.locator('input[name="name"]')).toHaveValue('', {
-      timeout: 10000
-    });
-    await expect(page.locator('input[name="email"]')).toHaveValue(
-      '',
-      { timeout: 10000 }
+    await page.click('input[type="submit"]');
+    await page.waitForSelector(
+      'li[role="status"][data-state="open"]'
     );
+
+    // Verify form reset
+    await expect(page.locator('input[name="name"]')).toHaveValue('');
+    await expect(page.locator('input[name="email"]')).toHaveValue('');
     await expect(
       page.locator('textarea[name="message"]')
-    ).toHaveValue('', { timeout: 10000 });
+    ).toHaveValue('');
   });
 
   test('should show error toast when user misses required fields', async ({
