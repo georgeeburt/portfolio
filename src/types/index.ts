@@ -11,3 +11,14 @@ export type Project = {
   demo?: string;
   deployedUrl?: string;
 };
+
+export type NavLink = {
+  href: string;
+  label: string;
+};
+
+export type SocialLink = {
+  href: string;
+  icon: string;
+  label: string;
+};

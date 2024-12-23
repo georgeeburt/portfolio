@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { socialLinks } from '@/lib/constants/navigation-constants';
+import { SOCIAL_LINKS } from '@/lib/constants/navigation-constants';
 
 export default function NavbarIcons() {
   return (
     <div className="flex gap-4">
-      {socialLinks.map((link) => (
+      {SOCIAL_LINKS.map((link) => (
         <Link
           key={link.label}
           href={link.href}

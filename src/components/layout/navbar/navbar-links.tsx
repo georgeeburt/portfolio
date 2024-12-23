@@ -5,13 +5,13 @@ import {
   NavigationMenuItem,
   NavigationMenuLink
 } from '../../ui/navigation-menu';
-import { navLinks } from '@/lib/constants/navigation-constants';
+import { NAV_LINKS } from '@/lib/constants/navigation-constants';
 
 export default function NavbarLinks() {
   return (
     <NavigationMenu className="text-lg font-medium">
       <NavigationMenuList className="gap-4">
-        {navLinks.map((link) => (
+        {NAV_LINKS.map((link) => (
           <NavigationMenuItem
             className="hover:text-muted"
             key={link.label}
