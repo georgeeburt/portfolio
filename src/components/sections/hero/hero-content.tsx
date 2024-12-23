@@ -1,14 +1,24 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Typer from '@/components/sections/hero/typer';
 
 export default function HeroContent() {
+  const [hasLoaded, setHasLoaded] = useState(false);
   const { scrollY } = useScroll();
+
+  // Wait for client-side hydration before enabling animations
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setHasLoaded(true);
+    });
+  }, []);
+
   const opacity = useTransform(
     scrollY,
     [0, 150, 400, 800],
-    [1, 0.9, 0.6, 0],
+    [hasLoaded ? 1 : 0, 0.9, 0.6, 0],
     { clamp: false }
   );
 
@@ -24,7 +34,7 @@ export default function HeroContent() {
         duration: 2,
         ease: [0.22, 1, 0.36, 1]
       }}
-      style={{ opacity, y }}
+      style={{ opacity: hasLoaded ? opacity : 0, y }}
     >
       <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold">
         Hello, my name is{' '}
