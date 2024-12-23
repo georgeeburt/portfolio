@@ -7,13 +7,17 @@ import {
 } from '@/lib/constants/skills-constants';
 import Marquee from 'react-fast-marquee';
 import { Separator } from '@/components/ui/separator';
+import { SKILLS_CONTENT } from '@/lib/constants/content-constants';
 
 export default function SkillsContent() {
-  const intro = `My journey with coding first began during my secondary school years, where I first discovered my passion for programming through Computer Science and Python.`;
   return (
     <Card>
-      <h2 className="text-[3rem] font-semibold">Skills</h2>
-      <p>{intro}</p>
+      <h2 className="text-[3rem] font-semibold">
+        {SKILLS_CONTENT.title}
+      </h2>
+      {SKILLS_CONTENT.content.map((paragraph, index) => (
+        <p key={paragraph.id || index}>{paragraph.text}</p>
+      ))}
       <h3 className="text-[1.5rem] font-semibold">Tech Stack</h3>
 
       <div>

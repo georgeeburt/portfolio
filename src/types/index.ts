@@ -1,3 +1,11 @@
+export interface SectionContent {
+  title: string;
+  content: {
+    text: string;
+    id?: string;
+  }[];
+}
+
 export type Skill = {
   label: string;
   image: string;
