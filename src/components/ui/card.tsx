@@ -9,14 +9,14 @@ export default function Card({
 }) {
   return (
     <motion.section
-      initial={{ y: 50, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      initial={{ x: -125, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
       transition={{
         duration: 1,
         ease: [0.33, 1, 0.68, 1]
       }}
       viewport={{
-        margin: '-100px'
+        amount: 0.4
       }}
       className="flex flex-col gap-8 py-8 px-8 relative rounded-lg backdrop-blur-md bg-white/[3%] border border-white/10 shadow-lg"
     >
