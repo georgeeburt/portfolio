@@ -11,13 +11,14 @@ export default function NavbarIcons() {
           href={link.href}
           target="_blank"
           aria-label={`Visit my ${link.label} profile`}
-          className="hover:bg-primary rounded-md"
+          className="rounded-md"
         >
           <Image
             height={25}
             width={25}
             src={link.icon}
             alt={`${link.label} logo`}
+            className='hover:bg-white/10 rounded-md'
           />
         </Link>
       ))}
