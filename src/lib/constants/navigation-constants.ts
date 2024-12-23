@@ -1,5 +1,5 @@
-import type { NavLink } from "@/types";
-import type { SocialLink } from "@/types";
+import type { NavLink } from '@/types';
+import type { SocialLink } from '@/types';
 
 export const NAV_LINKS: NavLink[] = [
   { href: '/#about', label: 'About' },

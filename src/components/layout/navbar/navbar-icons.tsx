@@ -18,7 +18,7 @@ export default function NavbarIcons() {
             width={25}
             src={link.icon}
             alt={`${link.label} logo`}
-            className='hover:bg-white/10 rounded-md'
+            className="hover:bg-white/10 rounded-md"
           />
         </Link>
       ))}

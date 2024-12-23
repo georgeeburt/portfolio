@@ -29,7 +29,7 @@ test.describe('Navbar', () => {
     expect(page.url()).toContain('#skills');
   });
 
-  test('should navigate to the projects section when the skills link is clicked', async ({
+  test('should navigate to the projects section when the project link is clicked', async ({
     page
   }) => {
     await page.click('a[href="/#projects"]');
