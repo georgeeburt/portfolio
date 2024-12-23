@@ -23,8 +23,6 @@ export default function ContactForm() {
       return;
     }
 
-
-
     try {
       if (formData.name === 't3st') {
         throw new Error('Test error triggered');

@@ -109,37 +109,40 @@ test.describe('Contact Form', () => {
   test('should show error toast when there is a form submission error', async ({
     page
   }) => {
-      await page.waitForTimeout(1000);
+    await page.waitForTimeout(1000);
 
-      await page.fill('input[name="name"]', 't3st');
-      await page.fill('input[name="email"]', 'test@example.com');
-      await page.fill('textarea[name="message"]', 'Test message');
+    await page.fill('input[name="name"]', 't3st');
+    await page.fill('input[name="email"]', 'test@example.com');
+    await page.fill('textarea[name="message"]', 'Test message');
 
-      await page.route('/contact', async (route) => {
-        const request = route.request();
-        if (request.method() === 'POST') {
-          await route.fulfill({
-            status: 500,
-            contentType: 'application/json',
-            body: JSON.stringify({
-              message: 'There was an error sending your message, please try again'
-            })
-          });
-        } else {
-          await route.continue();
-        }
-      });
+    await page.route('/contact', async (route) => {
+      const request = route.request();
+      if (request.method() === 'POST') {
+        await route.fulfill({
+          status: 500,
+          contentType: 'application/json',
+          body: JSON.stringify({
+            message:
+              'There was an error sending your message, please try again'
+          })
+        });
+      } else {
+        await route.continue();
+      }
+    });
 
-      await Promise.all([
-        page.click('input[type="submit"]'),
-        page.waitForLoadState('networkidle')
-      ]);
+    await Promise.all([
+      page.click('input[type="submit"]'),
+      page.waitForLoadState('networkidle')
+    ]);
 
-      const errorToastLocator = page.locator('li[role="status"][data-state="open"]');
+    const errorToastLocator = page.locator(
+      'li[role="status"][data-state="open"]'
+    );
 
-      await expect(errorToastLocator).toBeVisible({ timeout: 10000 });
-      await expect(errorToastLocator).toContainText(
-        'There was an error sending your message, please try again'
-      );
+    await expect(errorToastLocator).toBeVisible({ timeout: 10000 });
+    await expect(errorToastLocator).toContainText(
+      'There was an error sending your message, please try again'
+    );
   });
 });
