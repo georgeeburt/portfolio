@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { socialLinks } from '@/lib/constants/navigation-constants';
+import { SOCIAL_LINKS } from '@/lib/constants/navigation-constants';
 
 test.describe('Navbar', () => {
   test.beforeEach(async ({ page }) => {
@@ -29,6 +29,18 @@ test.describe('Navbar', () => {
     expect(page.url()).toContain('#skills');
   });
 
+  test('should navigate to the projects section when the skills link is clicked', async ({
+    page
+  }) => {
+    await page.click('a[href="/#projects"]');
+
+    const aboutSection = page.locator('#projects');
+    await expect(aboutSection).toBeVisible();
+
+    await page.waitForTimeout(1000);
+    expect(page.url()).toContain('#projects');
+  });
+
   test('should navigate to the contact section when the contact link is clicked', async ({
     page
   }) => {
@@ -51,7 +63,7 @@ test.describe('Navbar', () => {
 
     await newTab.waitForLoadState();
 
-    expect(newTab.url()).toContain(socialLinks[0].href);
+    expect(newTab.url()).toContain(SOCIAL_LINKS[0].href);
   });
 
   test('should navigate to LinkedIn profile when the LinkedIn icon is clicked', async ({
@@ -64,6 +76,6 @@ test.describe('Navbar', () => {
 
     await newTab.waitForLoadState();
 
-    expect(newTab.url()).toContain(socialLinks[1].href);
+    expect(newTab.url()).toContain(SOCIAL_LINKS[1].href);
   });
 });

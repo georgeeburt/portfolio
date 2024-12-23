@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { PROJECTS } from '@/lib/constants/projects-constants';
 
 test.describe('Projects Section', () => {
-  test('should display a list of projects', async ({ page }) => {
+  test('should display the correct number of projects', async ({ page }) => {
     await page.goto('/#projects');
 
     const projectCards = await page
