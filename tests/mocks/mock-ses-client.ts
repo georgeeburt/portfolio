@@ -1,4 +1,4 @@
-import { SendEmailCommand } from "@aws-sdk/client-ses";
+import { SendEmailCommand } from '@aws-sdk/client-ses';
 
 export class MockSESClient {
   private sentEmails: any[] = [];

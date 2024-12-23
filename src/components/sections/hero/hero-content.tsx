@@ -43,7 +43,7 @@ export default function HeroContent() {
         </span>
       </h1>
       <p className="text-[1.25rem] md:text-[1.5rem] lg:text-[2rem]">
-        I'm a Full-stack Developer proficient in
+        I&apos;m a Full-stack Developer proficient in
       </p>
       <p className="bg-purple-gradient text-[1.25rem] text-transparent bg-clip-text md:text-[1.5rem] lg:text-[2rem]">
         <Typer />

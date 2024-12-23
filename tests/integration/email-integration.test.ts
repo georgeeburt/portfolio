@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Contact Form Email Integration', () => {
-  test('should send email correctly through contact form', async ({ page }) => {
+  test('should send email correctly through contact form', async ({
+    page
+  }) => {
     await page.goto('/#contact');
 
     await page.fill('input[name="name"]', 'Integration Test User');

@@ -1,0 +1,36 @@
+name: Tests
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - uses: pnpm/action-setup@v3
+        with:
+          version: latest
+      - name: Check pnpm version
+        run: pnpm --version
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install chromium
+      - name: Start Development Server in Background
+        run: |
+          nohup pnpm dev &  # Run server in the background
+          sleep 10  # Give it a moment to start (optional)
+      - name: Run Tests
+        run: pnpm test
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: test-reports
+          path: |
+            playwright-report/
+            test-report/
+          retention-days: 7
