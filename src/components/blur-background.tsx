@@ -1,4 +1,11 @@
+'use client';
+
+import { useIsMobile } from '@/lib/hooks/use-mobile';
+
 export default function BlurBackground() {
+  const isMobile = useIsMobile();
+  if (isMobile) return null;
+
   return (
     <div className="fixed inset-0 overflow-hidden -z-10">
       {/* Purple circle */}

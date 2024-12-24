@@ -1,6 +1,9 @@
-import Navbar from '@/components/layout/navbar/navbar';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 import { Oxanium } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
+import Navbar from '@/components/layout/navbar/navbar';
+import BlurBackground from '@/components/blur-background';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -24,9 +27,12 @@ export default function RootLayout({
       <body
         className={`${oxanium.className} overflow-x-hidden antialiased`}
       >
+        <BlurBackground />
         <Navbar />
         {children}
         <Toaster />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
