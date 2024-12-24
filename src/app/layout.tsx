@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Oxanium } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/layout/navbar/navbar';
+import Footer from '@/components/layout/footer/footer';
 import BlurBackground from '@/components/blur-background';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Toaster />
         <Analytics />
         <SpeedInsights />
+        <Footer />
       </body>
     </html>
   );
