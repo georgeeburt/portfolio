@@ -15,6 +15,7 @@ jobs:
         with:
           persist-credentials: true
           ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
