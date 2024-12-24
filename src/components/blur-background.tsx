@@ -1,6 +1,6 @@
 'use client';
 
-import { useIsMobile } from "@/lib/hooks/use-mobile";
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 export default function BlurBackground() {
   const isMobile = useIsMobile();
