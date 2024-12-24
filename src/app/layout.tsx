@@ -1,4 +1,5 @@
 import Navbar from '@/components/layout/navbar/navbar';
+import BlurBackground from '@/components/blur-background';
 import { Oxanium } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import type { Metadata } from 'next';
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${oxanium.className} overflow-x-hidden antialiased`}
       >
+        <BlurBackground />
         <Navbar />
         {children}
         <Toaster />
