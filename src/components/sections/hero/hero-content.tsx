@@ -37,7 +37,7 @@ export default function HeroContent() {
       style={{ opacity: hasLoaded ? opacity : 0, y }}
     >
       <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold">
-        Hello, my name is{' '}
+        Hello, I&apos;m{' '}
         <span className="bg-purple-gradient text-transparent bg-clip-text">
           George
         </span>
