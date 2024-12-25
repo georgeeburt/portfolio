@@ -45,4 +45,8 @@ body {
 
 .grecaptcha-badge {
   visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
 }
