@@ -30,7 +30,7 @@ test.describe('Footer', () => {
     const scrollToTopButton = footer.locator('button');
 
     await scrollToTopButton.click();
-    await page.waitForTimeout(1250);
+    await page.waitForTimeout(3000);
 
     const scrollPosition = await page.evaluate(() => window.scrollY);
     expect(scrollPosition).toBe(0);
