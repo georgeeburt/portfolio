@@ -1,13 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { FormEvent, useState, useRef } from 'react';
+import { FormEvent, useState } from 'react';
 import { useToast } from '@/lib/hooks/use-toast';
 
 export default function ContactForm() {
   const { toast } = useToast();
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,16 +25,6 @@ export default function ContactForm() {
     }
 
     try {
-      const token = await recaptchaRef.current?.executeAsync();
-      if (!token) {
-        toast({
-          title: 'Verification Failed',
-          description: 'Please try again',
-          variant: 'destructive'
-        });
-        return;
-      }
-
       if (formData.name === 't3st') {
         throw new Error('Test error triggered');
       }
@@ -46,7 +34,7 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ...formData, recaptchaToken: token })
+        body: JSON.stringify(formData)
       });
 
       if (!response.ok) {
@@ -58,7 +46,6 @@ export default function ContactForm() {
         description: 'Your message has been successfully sent!'
       });
       setFormData({ name: '', email: '', message: '' });
-      recaptchaRef.current?.reset();
     } catch (error) {
       toast({
         title: 'Error',
@@ -84,11 +71,6 @@ export default function ContactForm() {
       onSubmit={handleSubmit}
       className="flex flex-grow flex-col gap-6"
     >
-      <ReCAPTCHA
-        ref={recaptchaRef}
-        size="invisible"
-        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-      />
       <p className="flex flex-col gap-2">
         <label htmlFor="name" className="font-semibold">
           Name:
