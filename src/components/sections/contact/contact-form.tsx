@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FormEvent, useState } from 'react';
 import { useToast } from '@/lib/hooks/use-toast';
 
@@ -113,6 +114,27 @@ export default function ContactForm() {
         type="submit"
         className="p-2 w-full rounded-lg hover:bg-white/5 cursor-pointer border border-white/10"
       />
+      <p className="text-xs text-gray-400">
+        This site is protected by reCAPTCHA and the Google{' '}
+        <Link
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-white/80 transition-colors"
+        >
+          Privacy Policy
+        </Link>{' '}
+        and{' '}
+        <Link
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-white/80 transition-colors"
+        >
+          Terms of Service
+        </Link>{' '}
+        apply.
+      </p>
     </form>
   );
 }

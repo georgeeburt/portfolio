@@ -3,12 +3,13 @@ import { EmailService } from '@/lib/services/email';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, message, recaptchaToken } =
+      await request.json();
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !recaptchaToken) {
       return new Response(
         JSON.stringify({
-          message: 'Name, email, and message are all required'
+          message: 'Name, email, message are all required'
         }),
         { status: 400 }
       );
