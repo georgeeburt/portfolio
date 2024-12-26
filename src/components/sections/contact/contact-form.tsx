@@ -9,7 +9,8 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    honeypot: ''
   });
 
   const handleSubmit = async (event: FormEvent) => {
@@ -19,6 +20,15 @@ export default function ContactForm() {
       toast({
         title: 'Missing Required Fields',
         description: 'Name, email, and message are all required',
+        variant: 'destructive'
+      });
+      return;
+    }
+
+    if (formData.honeypot) {
+      toast({
+        title: 'Failed to send message',
+        description: 'Spam detected',
         variant: 'destructive'
       });
       return;
@@ -45,7 +55,7 @@ export default function ContactForm() {
         title: 'Message sent',
         description: 'Your message has been successfully sent!'
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', honeypot: '' });
     } catch (error) {
       toast({
         title: 'Error',
@@ -109,6 +119,17 @@ export default function ContactForm() {
           onChange={handleChange}
           className="outline-zinc-800 resize-none bg-white/5 rounded-lg border border-white/10"
         ></textarea>
+      </p>
+      {/* Honeypot field */}
+      <p className="hidden">
+        <label htmlFor="honeypot">Leave this field blank</label>
+        <input
+          type="text"
+          id="honeypot"
+          name="honeypot"
+          onChange={handleChange}
+          value={formData.honeypot}
+        />
       </p>
       <input
         type="submit"
