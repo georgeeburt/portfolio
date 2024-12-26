@@ -10,7 +10,7 @@ export default function ContactForm() {
     name: '',
     email: '',
     message: '',
-    honeyPot: ''
+    honeypot: ''
   });
 
   const handleSubmit = async (event: FormEvent) => {
@@ -25,7 +25,7 @@ export default function ContactForm() {
       return;
     }
 
-    if (formData.honeyPot) {
+    if (formData.honeypot) {
       toast({
         title: 'Failed to send message',
         description: 'Spam detected',
@@ -55,7 +55,7 @@ export default function ContactForm() {
         title: 'Message sent',
         description: 'Your message has been successfully sent!'
       });
-      setFormData({ name: '', email: '', message: '', honeyPot: '' });
+      setFormData({ name: '', email: '', message: '', honeypot: '' });
     } catch (error) {
       toast({
         title: 'Error',
@@ -128,7 +128,7 @@ export default function ContactForm() {
           id="honeypot"
           name="honeypot"
           onChange={handleChange}
-          value={formData.honeyPot}
+          value={formData.honeypot}
         />
       </p>
       <input

@@ -17,7 +17,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     if (honeyPot) {
       return new Response(
         JSON.stringify({
-          message: 'Failed to submit form, spam detected'
+          message: 'Spam detected'
         }),
         { status: 400 }
       );
