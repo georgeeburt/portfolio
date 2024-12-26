@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.only('Contact Form', () => {
+test.describe('Contact Form', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/#contact');
   });
@@ -134,10 +134,12 @@ test.describe.only('Contact Form', () => {
     );
   });
 
-  test('should reject form submission when honeypot field is filled', async ({ page }) => {
+  test('should reject form submission when honeypot field is filled', async ({
+    page
+  }) => {
     await page.route('/contact', async (route) => {
       const request = route.request();
-      const data = JSON.parse(await request.postData() || '{}');
+      const data = JSON.parse((await request.postData()) || '{}');
 
       if (data.honeypot) {
         await route.fulfill({
@@ -158,7 +160,9 @@ test.describe.only('Contact Form', () => {
 
     // Temporarily make honeypot field visible and fill it
     await page.evaluate(() => {
-      const honeypotContainer = document.querySelector('p:has(input[name="honeypot"])') as HTMLElement;
+      const honeypotContainer = document.querySelector(
+        'p:has(input[name="honeypot"])'
+      ) as HTMLElement;
       if (honeypotContainer) {
         honeypotContainer.style.display = 'block';
         honeypotContainer.classList.remove('hidden');
@@ -167,7 +171,9 @@ test.describe.only('Contact Form', () => {
     await page.fill('input[name="honeypot"]', 'spam content');
 
     await page.evaluate(() => {
-      const honeypotContainer = document.querySelector('p:has(input[name="honeypot"])') as HTMLElement;
+      const honeypotContainer = document.querySelector(
+        'p:has(input[name="honeypot"])'
+      ) as HTMLElement;
       if (honeypotContainer) {
         honeypotContainer.style.display = 'none';
         honeypotContainer.classList.add('hidden');
@@ -179,18 +185,30 @@ test.describe.only('Contact Form', () => {
       page.waitForLoadState('networkidle')
     ]);
 
-    const toastLocator = page.locator('li[role="status"][data-state="open"]');
+    const toastLocator = page.locator(
+      'li[role="status"][data-state="open"]'
+    );
     await expect(toastLocator).toBeVisible({ timeout: 10000 });
     await expect(toastLocator).toContainText('Spam detected');
 
     // Verify form data wasn't cleared
-    await expect(page.locator('input[name="name"]')).toHaveValue('Test User');
-    await expect(page.locator('input[name="email"]')).toHaveValue('test@example.com');
-    await expect(page.locator('textarea[name="message"]')).toHaveValue('Test message');
+    await expect(page.locator('input[name="name"]')).toHaveValue(
+      'Test User'
+    );
+    await expect(page.locator('input[name="email"]')).toHaveValue(
+      'test@example.com'
+    );
+    await expect(
+      page.locator('textarea[name="message"]')
+    ).toHaveValue('Test message');
   });
 
-  test('should verify honeypot field is hidden from view', async ({ page }) => {
-    const honeypotContainer = page.locator('p:has(input[name="honeypot"])');
+  test('should verify honeypot field is hidden from view', async ({
+    page
+  }) => {
+    const honeypotContainer = page.locator(
+      'p:has(input[name="honeypot"])'
+    );
     await expect(honeypotContainer).toHaveClass(/hidden/);
 
     const honeypotInput = page.locator('input[name="honeypot"]');
