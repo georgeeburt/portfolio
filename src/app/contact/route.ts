@@ -9,8 +9,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     if (!name || !email || !message || !recaptchaToken) {
       return new Response(
         JSON.stringify({
-          message:
-            'Name, email, message are all required'
+          message: 'Name, email, message are all required'
         }),
         { status: 400 }
       );

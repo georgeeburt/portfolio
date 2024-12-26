@@ -18,9 +18,7 @@ export default function ProjectCard({
         <h3 className="text-[1.5rem] md:text-[1.75rem] font-semibold md:text-left">
           {title}
         </h3>
-        <p className="text-sm md:text-base">
-          {description}
-        </p>
+        <p className="text-sm md:text-base">{description}</p>
       </div>
     </article>
   );
