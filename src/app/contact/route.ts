@@ -3,10 +3,10 @@ import { EmailService } from '@/lib/services/email';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
-    const { name, email, message, recaptchaToken } =
+    const { name, email, message } =
       await request.json();
 
-    if (!name || !email || !message || !recaptchaToken) {
+    if (!name || !email || !message) {
       return new Response(
         JSON.stringify({
           message:
