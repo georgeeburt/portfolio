@@ -38,14 +38,14 @@ export default function HeroContent() {
     >
       <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold">
         Hello, I&apos;m{' '}
-        <span className="bg-purple-gradient text-transparent bg-clip-text">
+        <span className="bg-orange-gradient text-transparent bg-clip-text">
           George
         </span>
       </h1>
       <p className="text-[1.25rem] md:text-[1.5rem] lg:text-[2rem]">
         I&apos;m a Full-stack Developer proficient in
       </p>
-      <p className="bg-purple-gradient text-[1.25rem] text-transparent bg-clip-text md:text-[1.5rem] lg:text-[2rem]">
+      <p className="bg-orange-gradient text-[1.25rem] text-transparent bg-clip-text md:text-[1.5rem] lg:text-[2rem]">
         <Typer />
       </p>
     </motion.div>

@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'purple-gradient': 'linear-gradient( #757AFF, #FA54FF)'
+        'orange-gradient': 'linear-gradient( #F04C37, #F89A3D)'
       },
       colors: {
         background: 'hsl(var(--background))',
