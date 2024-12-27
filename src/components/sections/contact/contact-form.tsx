@@ -116,7 +116,7 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="outline-zinc-800 resize-none bg-white/5 rounded-lg border border-white/10"
+          className="p-1 outline-zinc-800 resize-none bg-white/5 rounded-lg border border-white/10"
         ></textarea>
       </p>
       {/* Honeypot field */}
@@ -132,7 +132,7 @@ export default function ContactForm() {
       </p>
       <input
         type="submit"
-        className="p-2 w-full rounded-lg hover:bg-white/5 cursor-pointer border border-white/10"
+        className="p-2 w-full rounded-lg bg-primary/60 cursor-pointer border border-white/20"
       />
     </form>
   );

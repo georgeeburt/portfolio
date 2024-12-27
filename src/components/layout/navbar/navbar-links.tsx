@@ -13,7 +13,7 @@ export default function NavbarLinks() {
       <NavigationMenuList className="gap-4">
         {NAV_LINKS.map((link) => (
           <NavigationMenuItem
-            className="hover:text-muted"
+            className="hover:text-accent"
             key={link.label}
           >
             <Link href={link.href} legacyBehavior passHref>

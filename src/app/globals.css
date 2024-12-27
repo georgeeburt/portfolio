@@ -12,24 +12,12 @@ body {
 
 @layer base {
   :root {
-    --background: 265 100% 6%;
+    --background: 359 0% 8%;
     --foreground: 0 0% 100%;
-    --navbar-background: 265 100% 4%;
-    --popover: 238 0% 13%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 251 100% 23%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 246 54% 73%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 251, 0%, 82%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 246 54% 73%;
-    --accent-foreground: 240 5.9% 10%;
+    --navbar-background: 359 0% 5%;
+    --primary: 16 76% 59%;
+    --accent: 16 0% 70%;
     --destructive: 360 71% 59%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 238 54% 73%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
     --radius: 0.4rem;
   }
 }
