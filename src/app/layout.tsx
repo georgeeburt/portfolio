@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${oxanium.className} overflow-x-hidden antialiased`}
+        className={`${oxanium.className} overflow-x-hidden antialiased text-justify leading-relaxed`}
       >
         <Navbar />
         {children}
