@@ -16,6 +16,7 @@ export type Project = {
   title: string;
   description: string;
   image: string;
+  techStack: string[];
   demo?: string;
   deployedUrl?: string;
 };

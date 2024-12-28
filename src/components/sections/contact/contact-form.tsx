@@ -90,7 +90,7 @@ export default function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="p-1 lg:w-4/6 outline-zinc-800 bg-white/5 rounded-lg border border-white/10"
+          className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 lg:w-4/6"
         />
       </p>
       <p className="flex flex-col gap-2">
@@ -103,7 +103,7 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="p-1 lg:w-4/6  outline-zinc-800 bg-white/5 rounded-lg border border-white/10"
+          className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 lg:w-4/6"
         />
       </p>
       <p className="flex flex-col gap-2">
@@ -116,7 +116,7 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="p-1 outline-zinc-800 resize-none bg-white/5 rounded-lg border border-white/10"
+          className="resize-none rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800"
         ></textarea>
       </p>
       {/* Honeypot field */}
@@ -132,7 +132,7 @@ export default function ContactForm() {
       </p>
       <input
         type="submit"
-        className="p-2 w-full rounded-lg bg-primary/60 cursor-pointer border border-white/20"
+        className="w-full cursor-pointer rounded-lg border border-white/20 bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary"
       />
     </form>
   );

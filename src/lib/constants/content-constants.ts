@@ -28,7 +28,7 @@ export const PROJECTS_CONTENT: SectionContent = {
   title: 'Projects',
   content: [
     {
-      text: 'Explore a selection of projects I contributed to below:'
+      text: 'Explore a selection of projects I contributed to below, showcasing innovative solutions, collaborative efforts, and cutting-edge technologies. Each project reflects my dedication to creating impactful and efficient systems, blending creativity with technical expertise.'
     }
   ]
 };

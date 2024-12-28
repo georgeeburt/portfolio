@@ -31,15 +31,15 @@ export default function ScrollCue() {
   return (
     <div
       className={cn(
-        'absolute left-1/2 -translate-x-1/2 flex flex-col text-gray-600 items-center animate-pulse transition-all duration-1000 ease-in-out',
+        'absolute left-1/2 flex -translate-x-1/2 animate-pulse flex-col items-center text-gray-600 transition-all duration-1000 ease-in-out',
         isMobile ? 'bottom-24' : 'bottom-7',
         isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-10 pointer-events-none hidden'
+          ? 'translate-y-0 opacity-100'
+          : 'pointer-events-none hidden translate-y-10 opacity-0'
       )}
     >
       <p className="lg:text-sm">Scroll Down</p>
-      <ChevronDown className="w-5 h-5" />
+      <ChevronDown className="h-5 w-5" />
     </div>
   );
 }

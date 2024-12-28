@@ -16,12 +16,8 @@ export default {
         foreground: 'hsl(var(--foreground))',
         navbar: 'hsl(var(--navbar-background))',
         card: {
-          DEFAULT: 'hsl(var(--card))',
+          DEFAULT: 'hsla(var(--card-background))',
           foreground: 'hsl(var(--card-foreground))'
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
         },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -43,9 +39,7 @@ export default {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))'
+        border: 'hsl(var(--border))'
       },
       borderRadius: {
         lg: 'var(--radius)',

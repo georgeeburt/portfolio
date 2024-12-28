@@ -11,7 +11,7 @@ export default function RootContent() {
     <>
       <Container>
         <main>
-          <section className="min-h-[calc(100vh-80px)] h-screen sticky top-0 pt-48">
+          <section className="sticky top-0 h-screen min-h-[calc(100vh-80px)] pt-48">
             <HeroContent />
             <ScrollCue />
           </section>

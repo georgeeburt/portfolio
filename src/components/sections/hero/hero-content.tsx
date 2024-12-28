@@ -36,16 +36,16 @@ export default function HeroContent() {
       }}
       style={{ opacity: hasLoaded ? opacity : 0, y }}
     >
-      <h1 className="text-[2rem] md:text-[2.5rem] lg:text-[4rem] font-bold">
+      <h1 className="text-[2rem] font-bold md:text-[2.5rem] lg:text-[4rem]">
         Hello, I&apos;m{' '}
-        <span className="bg-orange-gradient text-transparent bg-clip-text">
+        <span className="bg-orange-gradient bg-clip-text text-transparent">
           George
         </span>
       </h1>
       <p className="text-[1.25rem] md:text-[1.5rem] lg:text-[2rem]">
         I&apos;m a Full-stack Developer proficient in
       </p>
-      <p className="bg-orange-gradient text-[1.25rem] text-transparent bg-clip-text md:text-[1.5rem] lg:text-[2rem]">
+      <p className="bg-orange-gradient bg-clip-text text-[1.25rem] text-transparent md:text-[1.5rem] lg:text-[2rem]">
         <Typer />
       </p>
     </motion.div>

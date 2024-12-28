@@ -13,7 +13,7 @@ export default function ContactContent() {
       {CONTACT_CONTENT.content.map((paragraph, index) => (
         <p key={paragraph.id || index}>{paragraph.text}</p>
       ))}
-      <div className="flex flex-wrap lg:flex justify-between gap-12">
+      <div className="flex flex-wrap justify-between gap-12 lg:flex">
         <ContactForm />
         <div className="flex flex-col flex-wrap gap-4">
           <h3 className="font-semibold">Connect with me</h3>
