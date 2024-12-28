@@ -13,6 +13,15 @@ export const PROJECTS: Project[] = [
               multiple blockchain APIs to provide comprehensive coverage
               across major cryptocurrencies.`,
     image: '/projects/chainalyze.svg',
+    techStack: [
+      'TypeScript',
+      'React',
+      'Tailwind',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Supertest'
+    ],
     demo: '/projects/demos/chainalyse-demo.gif'
   },
   {
@@ -24,6 +33,14 @@ export const PROJECTS: Project[] = [
             actionable, accurate, and relevant information for
             informed decision-making.`,
     image: '/projects/birdy-ai.png',
+    techStack: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Supabase',
+      'Vitest'
+    ],
     demo: '/projects/demos/birdy-demo.gif'
   }
 ];

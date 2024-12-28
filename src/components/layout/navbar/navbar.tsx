@@ -4,7 +4,7 @@ import NavbarLinks from './navbar-links';
 
 export default function Navbar() {
   return (
-    <header className="fixed flex flex-wrap bg-navbar w-full justify-evenly items-center px-2 p-2 sm:p-2 z-10 md:p-2 lg:p-2">
+    <header className="fixed z-10 flex w-full flex-wrap items-center justify-evenly bg-navbar p-2 px-2 sm:p-2 md:p-2 lg:p-2">
       <Image
         height={70}
         width={350}

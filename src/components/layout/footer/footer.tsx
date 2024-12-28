@@ -2,7 +2,7 @@ import ScrollToTopButton from './scroll-to-top-button';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col md:flex-row gap-3 items-center justify-evenly w-full py-6 text-gray-600 border-t border-white/10 bg-white/5">
+    <footer className="flex w-full flex-col items-center justify-evenly gap-3 border-t border-white/10 bg-white/5 py-6 text-gray-600 md:flex-row">
       <p>&copy; 2024 George Burt. All rights reserved.</p>
       <ScrollToTopButton />
     </footer>

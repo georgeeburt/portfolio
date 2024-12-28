@@ -15,7 +15,11 @@ body {
     --background: 359 0% 8%;
     --foreground: 0 0% 100%;
     --navbar-background: 359 0% 5%;
-    --primary: 16 76% 59%;
+    --primary: 13 76% 59%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 22 76% 60%;
+    --card-background: 12, 0%, 100%, 0.05;
+    --card-foreground: 0 0% 100%;
     --accent: 16 0% 70%;
     --destructive: 360 71% 59%;
     --radius: 0.4rem;
