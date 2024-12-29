@@ -16,6 +16,16 @@ test.describe('Contact Form Rate Limiter', () => {
       'X-Forwarded-For': '127.0.0.1'
     });
 
+    await page.route('https://api.resend.com/emails', async route => {
+      await route.fulfill({
+        status: 200,
+        body: JSON.stringify({
+          id: 'test-email-id',
+          message: 'Success'
+        })
+      });
+    });
+
     await page.goto('/#contact');
   });
 
