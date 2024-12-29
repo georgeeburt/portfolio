@@ -5,10 +5,6 @@ const WINDOW_SIZE_IN_SECONDS = 86400;
 const MAX_REQUESTS_PER_WINDOW = 3;
 
 export async function rateLimiter(request: NextRequest) {
-  // Skip rate limiting in development
-  if (process.env.NODE_ENV === 'development') {
-    return null;
-  }
   try {
     const ip =
       request.headers.get('x-forwarded-for') ||
