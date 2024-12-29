@@ -51,7 +51,8 @@ export default function ContactForm() {
       if (response.status === 429) {
         toast({
           title: 'Rate Limit Exceeded',
-          description: 'You\'ve exceeded the rate limit, please try again later.',
+          description:
+            "You've exceeded the rate limit, please try again later.",
           variant: 'destructive'
         });
         return;
