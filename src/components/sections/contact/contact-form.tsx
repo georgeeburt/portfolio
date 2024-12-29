@@ -11,6 +11,7 @@ export default function ContactForm() {
     message: '',
     honeypot: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -33,6 +34,7 @@ export default function ContactForm() {
       return;
     }
 
+    setIsSubmitting(true);
     try {
       if (formData.name === 't3st') {
         throw new Error('Test error triggered');
@@ -46,16 +48,28 @@ export default function ContactForm() {
         body: JSON.stringify(formData)
       });
 
+      if (response.status === 429) {
+        toast({
+          title: 'Rate Limit Exceeded',
+          description:
+            "You've exceeded the rate limit, please try again later.",
+          variant: 'destructive'
+        });
+        return;
+      }
+
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
 
+      setIsSubmitting(false);
       toast({
         title: 'Message sent',
         description: 'Your message has been successfully sent!'
       });
       setFormData({ name: '', email: '', message: '', honeypot: '' });
     } catch (error) {
+      setIsSubmitting(false);
       toast({
         title: 'Error',
         description:
@@ -132,6 +146,7 @@ export default function ContactForm() {
       </p>
       <input
         type="submit"
+        value={isSubmitting ? 'Sending...' : 'Send Message'}
         className="w-full cursor-pointer rounded-lg border border-white/20 bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary"
       />
     </form>

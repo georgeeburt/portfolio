@@ -1,7 +1,13 @@
+import { rateLimiter } from '@/lib/middleware/rate-limiter';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
+    const rateLimitResult = await rateLimiter(request);
+    if (rateLimitResult) {
+      return rateLimitResult;
+    }
+
     const { name, email, message, honeyPot } = await request.json();
 
     if (!name || !email || !message) {
