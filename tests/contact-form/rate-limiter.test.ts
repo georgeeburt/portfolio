@@ -45,6 +45,19 @@ test.describe('Contact Form Rate Limiter', () => {
         page.click('input[type="submit"]')
       ]);
 
+      const responseStatus = response[0].status();
+      const responseText = await response[0].text();
+      console.log(`Submission ${i + 1} details:`, {
+        status: responseStatus,
+        ok: response[0].ok(),
+        body: responseText,
+        headers: await response[0].allHeaders()
+      });
+
+      const redisKey = 'rate_limit:127.0.0.1';
+      const count = await redis.get(redisKey);
+      console.log('Current Redis count:', count);
+
       expect(response[0].ok()).toBe(true);
 
       // Wait for toast to disappear
