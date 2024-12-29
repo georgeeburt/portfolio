@@ -48,6 +48,15 @@ export default function ContactForm() {
         body: JSON.stringify(formData)
       });
 
+      if (response.status === 429) {
+        toast({
+          title: 'Rate Limit Exceeded',
+          description: 'You\'ve exceeded the rate limit, please try again later.',
+          variant: 'destructive'
+        });
+        return;
+      }
+
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
