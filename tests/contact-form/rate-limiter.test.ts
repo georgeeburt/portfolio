@@ -14,6 +14,7 @@ test.describe('Contact Form Rate Limiter', () => {
       'X-Forwarded-For': '127.0.0.1'
     });
 
+    console.log('✅ Mock setup complete');
     await page.goto('/#contact');
   });
 
