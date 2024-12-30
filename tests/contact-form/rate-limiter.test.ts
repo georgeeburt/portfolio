@@ -5,29 +5,14 @@ test.describe('Contact Form Rate Limiter', () => {
   const DAILY_LIMIT = 3;
 
   test.beforeEach(async ({ page }) => {
-    // Clear any existing rate limit data
     const keys = await redis.keys('rate_limit:*');
     if (keys.length > 0) {
       await redis.del(...keys);
     }
 
-    // Set consistent IP for testing
     await page.setExtraHTTPHeaders({
       'X-Forwarded-For': '127.0.0.1'
     });
-
-    await page.route(
-      'https://api.resend.com/emails',
-      async (route) => {
-        await route.fulfill({
-          status: 200,
-          body: JSON.stringify({
-            id: 'test-email-id',
-            message: 'Success'
-          })
-        });
-      }
-    );
 
     await page.goto('/#contact');
   });
@@ -44,19 +29,6 @@ test.describe('Contact Form Rate Limiter', () => {
         page.waitForResponse((res) => res.url().includes('/contact')),
         page.click('input[type="submit"]')
       ]);
-
-      const responseStatus = response[0].status();
-      const responseText = await response[0].text();
-      console.log(`Submission ${i + 1} details:`, {
-        status: responseStatus,
-        ok: response[0].ok(),
-        body: responseText,
-        headers: await response[0].allHeaders()
-      });
-
-      const redisKey = 'rate_limit:127.0.0.1';
-      const count = await redis.get(redisKey);
-      console.log('Current Redis count:', count);
 
       expect(response[0].ok()).toBe(true);
 
@@ -78,12 +50,6 @@ test.describe('Contact Form Rate Limiter', () => {
       }),
       page.click('input[type="submit"]')
     ]);
-
-    if (response[0].status() !== 429) {
-      const text = await response[0].text();
-      console.log('Unexpected response:', text);
-      console.log('Response status:', response[0].status());
-    }
 
     expect(response[0].status()).toBe(429);
 
