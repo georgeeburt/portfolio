@@ -24,8 +24,10 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install chromium
       - name: Start Development Server in Background
+        env:
+          NEXT_PUBLIC_NODE_ENV: test
         run: |
-          NODE_ENV=test nohup pnpm dev &
+          NODE_ENV=test NEXT_PUBLIC_NODE_ENV=test nohup pnpm dev &
           sleep 10
       - name: Run Tests
         run: pnpm test
