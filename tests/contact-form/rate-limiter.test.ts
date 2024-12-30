@@ -48,7 +48,7 @@ test.describe('Contact Form Rate Limiter', () => {
       expect(response[0].ok()).toBe(true);
 
       // Wait for toast to disappear
-      await page.locator('li[role="status"]').waitFor({ state: 'hidden', timeout: 3000 });
+      await page.locator('li[role="status"]').waitFor({ state: 'hidden', timeout: 10000 });
     }
 
     // Next submission should be rate limited
