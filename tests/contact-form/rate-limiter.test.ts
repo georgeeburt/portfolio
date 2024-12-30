@@ -30,6 +30,12 @@ test.describe('Contact Form Rate Limiter', () => {
         page.click('input[type="submit"]')
       ]);
 
+      const responseText = await response[0].text();
+      console.log('Response details:', {
+        status: response[0].status(),
+        body: responseText
+      });
+
       expect(response[0].ok()).toBe(true);
 
       // Wait for toast to disappear
