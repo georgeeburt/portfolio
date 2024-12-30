@@ -5,12 +5,15 @@ test.describe('Contact Form Rate Limiter', () => {
   const DAILY_LIMIT = 3;
 
   test.beforeEach(async ({ page }) => {
-    const keys = await redis.keys('rate_limit:*');
-    if (keys.length > 0) {
-      await redis.del(...keys);
+    // Clear Redis keys with the "test:*" namespace before each test
+    if (process.env.NODE_ENV === 'test') {
+      const keys = await redis.keys('test:*');
+      if (keys.length > 0) {
+        await redis.del(...keys);
+      }
     }
 
-    // Mock email sending endpoint
+    // Mock contact endpoint
     await page.route('**/contact', (route) => {
       route.fulfill({
         status: 200,
@@ -39,12 +42,6 @@ test.describe('Contact Form Rate Limiter', () => {
         page.click('input[type="submit"]'),
       ]);
 
-      const responseText = await response[0].text();
-      console.log('Response details:', {
-        status: response[0].status(),
-        body: responseText,
-      });
-
       expect(response[0].ok()).toBe(true);
 
       // Wait for toast to disappear
@@ -72,13 +69,5 @@ test.describe('Contact Form Rate Limiter', () => {
     const rateLimitToast = page.locator('li[role="status"]');
     await expect(rateLimitToast).toBeVisible();
     await expect(rateLimitToast).toContainText('Rate Limit Exceeded');
-  });
-
-  test.afterAll(async () => {
-    // Clean up Redis after tests
-    const keys = await redis.keys('rate_limit:*');
-    if (keys.length > 0) {
-      await redis.del(...keys);
-    }
   });
 });

@@ -5,10 +5,7 @@ export async function POST(request: NextRequest): Promise<Response> {
   try {
     if (process.env.NODE_ENV === 'test') {
       return new NextResponse(
-        JSON.stringify({
-          message: 'Success',
-          data: { id: 'test-id' }
-        }),
+        JSON.stringify({ message: 'Test Mode' }),
         { status: 200 }
       );
     }
