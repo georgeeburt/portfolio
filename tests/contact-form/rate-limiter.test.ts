@@ -6,31 +6,20 @@ test.describe('Contact Form Rate Limiter', () => {
 
   test.beforeEach(async ({ page }) => {
     // Clear Redis keys with the "test:*" namespace before each test
-    if (process.env.NODE_ENV === 'test') {
-      const keys = await redis.keys('test:*');
-      if (keys.length > 0) {
-        await redis.del(...keys);
-      }
+    const keys = await redis.keys('test:*');
+    if (keys.length > 0) {
+      await redis.del(...keys);
     }
 
-    // Mock contact endpoint
-    await page.route('**/contact', (route) => {
-      route.fulfill({
-        status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify({ message: 'Email mock sent' }),
-      });
-    });
-
     await page.setExtraHTTPHeaders({
-      'X-Forwarded-For': '127.0.0.1',
+      'X-Forwarded-For': '127.0.0.1'
     });
 
     await page.goto('/#contact');
   });
 
   test('should rate limit user if submissions exceed daily limit', async ({
-    page,
+    page
   }) => {
     for (let i = 0; i < DAILY_LIMIT; i++) {
       await page.fill('#name', 'Test User');
@@ -39,13 +28,15 @@ test.describe('Contact Form Rate Limiter', () => {
 
       const response = await Promise.all([
         page.waitForResponse((res) => res.url().includes('/contact')),
-        page.click('input[type="submit"]'),
+        page.click('input[type="submit"]')
       ]);
 
       expect(response[0].ok()).toBe(true);
 
       // Wait for toast to disappear
-      await page.locator('li[role="status"]').waitFor({ state: 'hidden', timeout: 10000 });
+      await page
+        .locator('li[role="status"]')
+        .waitFor({ state: 'hidden', timeout: 10000 });
     }
 
     // Next submission should be rate limited
@@ -60,7 +51,7 @@ test.describe('Contact Form Rate Limiter', () => {
           (res.status() === 429 || res.status() === 200)
         );
       }),
-      page.click('input[type="submit"]'),
+      page.click('input[type="submit"]')
     ]);
 
     expect(response[0].status()).toBe(429);

@@ -27,7 +27,7 @@ jobs:
         env:
           NEXT_PUBLIC_NODE_ENV: test
         run: |
-          NODE_ENV=test NEXT_PUBLIC_NODE_ENV=test nohup pnpm dev &
+          nohup pnpm dev &
           sleep 10
       - name: Run Tests
         run: pnpm test

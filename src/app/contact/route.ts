@@ -3,12 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
-    if (process.env.NODE_ENV === 'test') {
-      return new NextResponse(
-        JSON.stringify({ message: 'Test Mode' }),
-        { status: 200 }
-      );
-    }
     const rateLimitResult = await rateLimiter(request);
     if (rateLimitResult) {
       return rateLimitResult;
@@ -31,6 +25,13 @@ export async function POST(request: NextRequest): Promise<Response> {
           message: 'Spam detected'
         }),
         { status: 400 }
+      );
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      return new NextResponse(
+        JSON.stringify({ message: 'Development Mode' }),
+        { status: 200 }
       );
     }
 
