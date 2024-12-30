@@ -28,6 +28,13 @@ export async function POST(request: NextRequest): Promise<Response> {
       );
     }
 
+    if (process.env.NODE_ENV === 'development') {
+      return new NextResponse(
+        JSON.stringify({ message: 'Development Mode' }),
+        { status: 200 }
+      );
+    }
+
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
