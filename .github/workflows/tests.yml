@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
           REDIS_URL: ${{ secrets.REDIS_URL }}
+          NODE_ENV: 'test'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

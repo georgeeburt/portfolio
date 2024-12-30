@@ -5,30 +5,37 @@ test.describe('Contact Form Rate Limiter', () => {
   const DAILY_LIMIT = 3;
 
   test.beforeEach(async ({ page }) => {
-    // Clear any existing rate limit data
+    console.log('🏁 Test setup starting...');
+
+    // Clear Redis data
     const keys = await redis.keys('rate_limit:*');
     if (keys.length > 0) {
       await redis.del(...keys);
     }
 
-    // Set consistent IP for testing
+    // Set IP header
     await page.setExtraHTTPHeaders({
       'X-Forwarded-For': '127.0.0.1'
     });
 
-    await page.route(
-      'https://api.resend.com/emails',
-      async (route) => {
-        await route.fulfill({
-          status: 200,
-          body: JSON.stringify({
-            id: 'test-email-id',
-            message: 'Success'
-          })
-        });
-      }
-    );
+    // Mock Resend API with more specific matching
+    await page.route(/.*api.resend.com\/emails.*/, async (route, request) => {
+      console.log('📧 Intercepted Resend API call');
+      console.log('Request URL:', request.url());
+      console.log('Request method:', request.method());
 
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          id: 'test-email-id',
+          message: 'Success'
+        })
+      });
+      console.log('📨 Sent mock response');
+    });
+
+    console.log('✅ Mock setup complete');
     await page.goto('/#contact');
   });
 
