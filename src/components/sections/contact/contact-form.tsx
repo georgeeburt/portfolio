@@ -55,6 +55,7 @@ export default function ContactForm() {
             "You've exceeded the rate limit, please try again later.",
           variant: 'destructive'
         });
+        setIsSubmitting(false);
         return;
       }
 

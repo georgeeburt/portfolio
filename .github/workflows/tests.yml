@@ -6,6 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+          REDIS_URL: ${{ secrets.REDIS_URL }}
+          NODE_ENV: 'test'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,9 +24,11 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install chromium
       - name: Start Development Server in Background
+        env:
+          NEXT_PUBLIC_NODE_ENV: test
         run: |
-          nohup pnpm dev &  # Run server in the background
-          sleep 10  # Give it a moment to start (optional)
+          nohup pnpm dev &
+          sleep 10
       - name: Run Tests
         run: pnpm test
       - uses: actions/upload-artifact@v4

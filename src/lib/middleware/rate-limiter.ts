@@ -4,19 +4,15 @@ import redis from '../config/redis';
 const WINDOW_SIZE_IN_SECONDS = 86400;
 const MAX_REQUESTS_PER_WINDOW = 3;
 
+const namespace = process.env.NODE_ENV === 'development' ? 'test:' : '';
+
 export async function rateLimiter(request: NextRequest) {
-  // Skip rate limiting in development
-  if (process.env.NODE_ENV === 'development') {
-    return null;
-  }
   try {
     const ip =
       request.headers.get('x-forwarded-for') ||
       request.headers.get('x-real-ip') ||
       'anonymous';
-    const key = `rate_limit:${ip}`;
-
-    // Get the current request count for this IP
+    const key = `${namespace}rate_limit:${ip}`;
     const currentRequestCount = await redis.get(key);
 
     if (currentRequestCount === null) {
@@ -40,7 +36,6 @@ export async function rateLimiter(request: NextRequest) {
     await redis.incr(key);
     return null;
   } catch (error) {
-    console.error('Rate limiting error:', error);
-    return null;
+    console.error('Rate limiter error:', error);
   }
 }
