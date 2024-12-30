@@ -5,13 +5,12 @@ test.describe('Contact Form Rate Limiter', () => {
   const DAILY_LIMIT = 3;
 
   test.beforeEach(async ({ page }) => {
-    // Clear any existing rate limit data
-    const keys = await redis.keys('rate_limit:*');
+    // Clear Redis keys with the "test:*" namespace before each test
+    const keys = await redis.keys('test:*');
     if (keys.length > 0) {
       await redis.del(...keys);
     }
 
-    // Set consistent IP for testing
     await page.setExtraHTTPHeaders({
       'X-Forwarded-For': '127.0.0.1'
     });
@@ -35,7 +34,9 @@ test.describe('Contact Form Rate Limiter', () => {
       expect(response[0].ok()).toBe(true);
 
       // Wait for toast to disappear
-      await page.waitForTimeout(2000);
+      await page
+        .locator('li[role="status"]')
+        .waitFor({ state: 'hidden', timeout: 7500 });
     }
 
     // Next submission should be rate limited
@@ -53,25 +54,11 @@ test.describe('Contact Form Rate Limiter', () => {
       page.click('input[type="submit"]')
     ]);
 
-    if (response[0].status() !== 429) {
-      const text = await response[0].text();
-      console.log('Unexpected response:', text);
-      console.log('Response status:', response[0].status());
-    }
-
     expect(response[0].status()).toBe(429);
 
     // Check for rate limit toast
     const rateLimitToast = page.locator('li[role="status"]');
     await expect(rateLimitToast).toBeVisible();
     await expect(rateLimitToast).toContainText('Rate Limit Exceeded');
-  });
-
-  test.afterAll(async () => {
-    // Clean up Redis after tests
-    const keys = await redis.keys('rate_limit:*');
-    if (keys.length > 0) {
-      await redis.del(...keys);
-    }
   });
 });
