@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Tooltip from './tooltip';
 import Card from '@/components/ui/card';
+import Marquee from 'react-fast-marquee';
+import { Separator } from '@/components/ui/separator';
+import { SKILLS_CONTENT } from '@/lib/constants/content-constants';
 import {
   SKILLS,
   SECONDARY_SKILLS
 } from '@/lib/constants/skills-constants';
-import Marquee from 'react-fast-marquee';
-import { Separator } from '@/components/ui/separator';
-import { SKILLS_CONTENT } from '@/lib/constants/content-constants';
 
 export default function SkillsContent() {
   return (
@@ -42,9 +43,7 @@ export default function SkillsContent() {
                   src={skill.image}
                   alt={`${skill.label} logo`}
                 />
-                <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black/60 px-2 py-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  {skill.label}
-                </span>
+                <Tooltip label={skill.label} />
               </Link>
             ))}
           </div>
@@ -69,9 +68,7 @@ export default function SkillsContent() {
               src={skill.image}
               alt={`${skill.label} logo`}
             />
-            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black/80 px-2 py-1 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              {skill.label}
-            </span>
+            <Tooltip label={skill.label} />
           </Link>
         ))}
       </div>
