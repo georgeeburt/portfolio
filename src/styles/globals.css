@@ -35,10 +35,6 @@ body {
   }
 }
 
-.grecaptcha-badge {
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
+::selection {
+  background-color: hsla(19, 79%, 60%, 0.6);
 }
