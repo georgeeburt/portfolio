@@ -1,98 +1,18 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
-import { useToast } from '@/lib/hooks/use-toast';
+import useContactForm from '@/lib/hooks/use-contact-form';
 
 export default function ContactForm() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    honeypot: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault();
-
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: 'Missing Required Fields',
-        description: 'Name, email, and message are all required',
-        variant: 'destructive'
-      });
-      return;
-    }
-
-    if (formData.honeypot) {
-      toast({
-        title: 'Failed to send message',
-        description: 'Spam detected',
-        variant: 'destructive'
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-    try {
-      if (formData.name === 't3st') {
-        throw new Error('Test error triggered');
-      }
-
-      const response = await fetch('/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.status === 429) {
-        toast({
-          title: 'Rate Limit Exceeded',
-          description:
-            "You've exceeded the rate limit, please try again later.",
-          variant: 'destructive'
-        });
-        setIsSubmitting(false);
-        return;
-      }
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-
-      setIsSubmitting(false);
-      toast({
-        title: 'Message sent',
-        description: 'Your message has been successfully sent!'
-      });
-      setFormData({ name: '', email: '', message: '', honeypot: '' });
-    } catch (error) {
-      setIsSubmitting(false);
-      toast({
-        title: 'Error',
-        description:
-          'There was an error sending your message, please try again',
-        variant: 'destructive'
-      });
-      console.error('Error submitting form:', error);
-    }
-  };
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    });
-  };
+  const {
+    formData,
+    isSubmitting,
+    handleFormChange,
+    handleFormSubmit
+  } = useContactForm();
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleFormSubmit}
       className="flex flex-grow flex-col gap-6"
     >
       <p className="flex flex-col gap-2">
@@ -104,7 +24,7 @@ export default function ContactForm() {
           id="name"
           name="name"
           value={formData.name}
-          onChange={handleChange}
+          onChange={handleFormChange}
           className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 lg:w-4/6"
         />
       </p>
@@ -117,7 +37,7 @@ export default function ContactForm() {
           id="email"
           name="email"
           value={formData.email}
-          onChange={handleChange}
+          onChange={handleFormChange}
           className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 lg:w-4/6"
         />
       </p>
@@ -130,7 +50,7 @@ export default function ContactForm() {
           rows={5}
           name="message"
           value={formData.message}
-          onChange={handleChange}
+          onChange={handleFormChange}
           className="resize-none rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800"
         ></textarea>
       </p>
@@ -141,7 +61,7 @@ export default function ContactForm() {
           type="text"
           id="honeypot"
           name="honeypot"
-          onChange={handleChange}
+          onChange={handleFormChange}
           value={formData.honeypot}
         />
       </p>
