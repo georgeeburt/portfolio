@@ -24,7 +24,6 @@ export type Project = {
   description: string;
   image: string;
   techStack: string[];
-  demo?: string;
   deployedUrl?: string;
 };
 

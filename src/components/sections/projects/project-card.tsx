@@ -8,11 +8,11 @@ export default function ProjectCard({
   return (
     <article className="flex h-full flex-col items-center rounded-lg border border-white/10">
       <Image
-        height={175}
-        width={175}
+        height={1909}
+        width={933}
         src={image}
         alt={`${title} image`}
-        className="mb-3 mt-5 object-contain md:h-[200px] md:w-[200px]"
+        className="mb-3 object-cover rounded-t-lg"
       />
       <div className="flex flex-col gap-2 p-6">
         <h3 className="text-[1.5rem] font-semibold md:text-left md:text-[1.75rem]">
