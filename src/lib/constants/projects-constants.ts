@@ -19,6 +19,7 @@ export const PROJECTS: Project[] = [
       'Node.js',
       'Express.js',
       'MongoDB',
+      'Vitest',
       'Supertest'
     ]
   },
