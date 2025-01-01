@@ -28,6 +28,37 @@
   - Daily submission caps
   - IP-based tracking
 
+## Getting Started
+
+### Prerequisites
+
+- Node.js v18.13.0 or higher
+- pnpm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/portfolio.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd portfolio
+```
+
+3. Install dependencies:
+```bash
+pnpm install
+```
+
+4. Run the development server
+```bash
+pnpm dev
+```
+
+You can then access the appplication in your browser at http://localhost:3000.
+
 ## License
 
 This project is licensed under **All Rights Reserved**.
