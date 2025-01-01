@@ -11,7 +11,7 @@ export default function ScrollToTopButton() {
   };
 
   return (
-    <div className="cursor-pointer hover:text-gray-500">
+    <div className="cursor-pointer hover:text-muted-active">
       <button onClick={scrollToTop} className="flex gap-1">
         <p>Back to top</p>
         <ChevronUp />

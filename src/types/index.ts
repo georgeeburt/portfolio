@@ -6,6 +6,13 @@ export interface SectionContent {
   }[];
 }
 
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+  honeypot?: string | undefined;
+}
+
 export type Skill = {
   label: string;
   image: string;
@@ -17,7 +24,6 @@ export type Project = {
   description: string;
   image: string;
   techStack: string[];
-  demo?: string;
   deployedUrl?: string;
 };
 

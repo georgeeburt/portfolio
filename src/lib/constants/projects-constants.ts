@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
               detailed financial reports. The platform integrates
               multiple blockchain APIs to provide comprehensive coverage
               across major cryptocurrencies.`,
-    image: '/projects/chainalyze.svg',
+    image: '/images/projects/chainalyze-demo.png',
     techStack: [
       'TypeScript',
       'React',
@@ -21,8 +21,7 @@ export const PROJECTS: Project[] = [
       'Express.js',
       'MongoDB',
       'Supertest'
-    ],
-    demo: '/projects/demos/chainalyse-demo.gif'
+    ]
   },
   {
     title: 'birdy.ai',
@@ -32,7 +31,7 @@ export const PROJECTS: Project[] = [
             Powered by AI, it curates sentiment analysis to deliver
             actionable, accurate, and relevant information for
             informed decision-making.`,
-    image: '/projects/birdy-ai.png',
+    image: '/images/projects/birdy-ai-demo.png',
     techStack: [
       'Next.js',
       'React',
@@ -40,7 +39,6 @@ export const PROJECTS: Project[] = [
       'Tailwind',
       'Supabase',
       'Vitest'
-    ],
-    demo: '/projects/demos/birdy-demo.gif'
+    ]
   }
 ];

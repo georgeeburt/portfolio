@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Navbar from '@/components/layout/navbar/navbar';
 import Footer from '@/components/layout/footer/footer';
 import type { Metadata } from 'next';
-import './globals.css';
+import '../styles/globals.css';
 
 const oxanium = Oxanium({
   subsets: ['latin']

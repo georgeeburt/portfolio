@@ -28,12 +28,10 @@ export default {
           foreground: 'hsl(var(--secondary-foreground))'
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
+          DEFAULT: 'hsl(var(--muted))'
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+        'muted-active': {
+          DEFAULT: 'hsl(var(--muted-active))'
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
