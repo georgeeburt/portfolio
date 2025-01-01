@@ -38,21 +38,25 @@
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/portfolio.git
 ```
 
 2. Navigate to the project directory:
+
 ```bash
 cd portfolio
 ```
 
 3. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 4. Run the development server
+
 ```bash
 pnpm dev
 ```
