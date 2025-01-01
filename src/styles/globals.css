@@ -20,7 +20,9 @@ body {
     --secondary: 19 79% 60%;
     --card-background: 12, 0%, 100%, 0.05;
     --card-foreground: 0 0% 100%;
-    --accent: 16 0% 70%;
+    --muted: 16 0% 47%;
+    --muted-active: 16 0% 56%;
+    --accent-active: 16 0% 59%;
     --destructive: 360 71% 59%;
     --radius: 0.4rem;
   }
@@ -37,4 +39,5 @@ body {
 
 ::selection {
   background-color: hsla(19, 79%, 60%, 0.6);
+  color: black;
 }

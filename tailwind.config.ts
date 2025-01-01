@@ -29,11 +29,9 @@ export default {
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))'
+        'muted-active': {
+          DEFAULT: 'hsl(var(--muted-active))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
