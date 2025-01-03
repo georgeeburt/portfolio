@@ -5,9 +5,9 @@ import { Typewriter } from 'react-simple-typewriter';
 export default function Typer() {
   const words = [
     'TypeScript & JavaScript',
-    'React & Next.js',
     'Front-end & Back-end development',
-    'Web3'
+    'React & Next.js',
+    'Web3 & Blockchain'
   ];
   return (
     <Typewriter
