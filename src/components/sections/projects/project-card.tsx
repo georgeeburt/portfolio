@@ -24,7 +24,7 @@ export default function ProjectCard({
         {techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-md bg-primary/20 px-2 py-1 text-xs sm:text-sm font-semibold text-primary"
+            className="rounded-md bg-primary/20 px-2 py-1 text-xs font-semibold text-primary sm:text-sm"
           >
             {tech}
           </span>

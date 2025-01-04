@@ -75,7 +75,7 @@ export default function useContactForm() {
         title: 'Message sent',
         description: 'Your message has been successfully sent!'
       });
-      setFormData({ name: '', email: '', message: ''});
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setIsSubmitting(false);
       toast({

@@ -13,7 +13,7 @@ export default function NavbarLinks() {
       <NavigationMenuList className="gap-4">
         {NAV_LINKS.map((link) => (
           <NavigationMenuItem
-            className="hover:text-primary transition-colors duration-800"
+            className="duration-800 transition-colors hover:text-primary"
             key={link.label}
           >
             <Link href={link.href} legacyBehavior passHref>
