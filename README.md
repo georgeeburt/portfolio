@@ -30,6 +30,12 @@
 
 ## Getting Started
 
+### Purpose
+
+This repository is intended for personal reference, learning, and demonstration purposes only. It showcases the portfolio of **George Burt**, providing an example of how various technologies are integrated.
+
+Please note that **All Rights Reserved** applies to this repository. Unauthorized use, redistribution, or modification of this code is strictly prohibited.
+
 ### Prerequisites
 
 - Node.js v18.13.0 or higher
@@ -61,7 +67,7 @@ pnpm install
 pnpm dev
 ```
 
-You can then access the appplication in your browser at http://localhost:3000.
+You can then access the application in your browser at http://localhost:3000.
 
 ## License
 
