@@ -68,7 +68,7 @@ export default function ContactForm() {
       <input
         type="submit"
         value={isSubmitting ? 'Sending...' : 'Send Message'}
-        className="w-full cursor-pointer rounded-lg border border-white/20 bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary"
+        className="w-full cursor-pointer rounded-lg border border-primary-border bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary"
       />
     </form>
   );

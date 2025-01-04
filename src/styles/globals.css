@@ -15,9 +15,10 @@ body {
     --background: 359 0% 8%;
     --foreground: 0 0% 100%;
     --navbar-background: 359 0% 5%;
-    --primary: 19 87% 56%;
+    --primary: 140 100% 74%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 19 79% 60%;
+    --primary-border: 139, 100%, 31%, 0.75;
+    --secondary: 140 100% 61%;
     --card-background: 12, 0%, 100%, 0.05;
     --card-foreground: 0 0% 100%;
     --muted: 16 0% 47%;
@@ -38,6 +39,6 @@ body {
 }
 
 ::selection {
-  background-color: hsla(19, 79%, 60%, 0.6);
+  background-color: hsla(140, 100%, 74.1%, 0.85);
   color: black;
 }

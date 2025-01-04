@@ -77,6 +77,11 @@ export const SKILLS: Skill[] = [
     url: 'https://jestjs.io'
   },
   {
+    label: 'Playwright',
+    image: '/images/skills/playwright.svg',
+    url: 'https://playwright.dev'
+  },
+  {
     label: 'Git',
     image: '/images/skills/git.svg',
     url: 'https://git-scm.com'

@@ -12,7 +12,7 @@ export default function SocialCard({
 }) {
   return (
     <Link href={href} target="_blank">
-      <div className="flex cursor-pointer gap-3 rounded-lg border border-white/10 bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary">
+      <div className="flex cursor-pointer gap-3 rounded-lg border border-primary-border bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary">
         <SocialIcon />
         <p>{user}</p>
       </div>

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { DEFAULT_CIPHERS } from 'tls';
 
 export default {
   content: [
@@ -9,7 +10,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'orange-gradient': 'linear-gradient( #F04C37, #F89A3D)'
+        'green-gradient': 'linear-gradient(#00D146, #7AFFA7)'
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -23,6 +24,7 @@ export default {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'
         },
+        'primary-border': 'hsl(var(--primary-border))',
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))'

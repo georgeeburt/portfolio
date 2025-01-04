@@ -20,11 +20,11 @@ export default function ProjectCard({
         </h3>
         <p className="text-sm md:text-base">{description}</p>
       </div>
-      <div className="flex w-full flex-wrap gap-2 rounded-bl-lg rounded-br-lg border-t border-white/10 bg-card p-6">
+      <div className="flex w-full flex-wrap gap-3 rounded-bl-lg rounded-br-lg border-t border-white/10 bg-card p-6">
         {techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-md bg-primary/20 px-2 py-1 text-xs font-semibold text-primary"
+            className="rounded-md bg-primary/20 px-2 py-1 text-xs font-semibold text-primary sm:text-sm"
           >
             {tech}
           </span>
