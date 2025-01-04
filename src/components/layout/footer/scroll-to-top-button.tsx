@@ -11,11 +11,12 @@ export default function ScrollToTopButton() {
   };
 
   return (
-    <div className="cursor-pointer hover:text-muted-active">
-      <button onClick={scrollToTop} className="flex gap-1">
-        <p>Back to top</p>
-        <ChevronUp />
-      </button>
-    </div>
+    <button
+      onClick={scrollToTop}
+      className="relative flex cursor-pointer items-center gap-1 hover:text-muted-active"
+    >
+      <span>Back to top</span>
+      <ChevronUp className="h-4 w-4" />
+    </button>
   );
 }
