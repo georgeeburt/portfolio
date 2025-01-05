@@ -27,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${oxanium.className} overflow-x-hidden antialiased`}
       >
+        <div className="background" />
         <Navbar />
         {children}
         <Toaster />
