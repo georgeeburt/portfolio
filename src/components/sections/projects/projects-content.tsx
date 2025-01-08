@@ -3,6 +3,7 @@ import { PROJECTS } from '@/lib/constants/projects-constants';
 import { Separator } from '@/components/ui/separator';
 import ProjectCard from './project-card';
 import { PROJECTS_CONTENT } from '@/lib/constants/content-constants';
+import GithubContributions from './github-contributions';
 
 export default function ProjectsContent() {
   return (
@@ -19,6 +20,11 @@ export default function ProjectsContent() {
           <ProjectCard key={project.title} project={project} />
         ))}
       </div>
+      <Separator />
+      <h2 className="text-[1.5rem] font-semibold md:text-left md:text-[1.75rem]">
+        Contributions
+      </h2>
+      <GithubContributions />
     </Card>
   );
 }
