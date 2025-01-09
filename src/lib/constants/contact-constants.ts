@@ -1,19 +1,16 @@
-import { Mail } from 'lucide-react';
-import { SiGithub, SiLinkedin } from '@icons-pack/react-simple-icons';
-
-export const contactSocials = [
+export const CONTACT_SOCIALS = [
   {
-    Icon: Mail,
+    icon: '/icons/mail.svg',
     href: 'mailto:georgeeburt@icloud.com',
     user: 'georgeeburt@icloud.com'
   },
   {
-    Icon: SiGithub,
+    icon: '/icons/github.svg',
     href: 'https://github.com/georgeeburt',
     user: 'georgeeburt'
   },
   {
-    Icon: SiLinkedin,
+    icon: '/icons/linkedin.svg',
     href: 'https://www.linkedin.com/in/george-burt/',
     user: 'george-burt'
   }

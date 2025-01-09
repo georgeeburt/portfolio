@@ -6,7 +6,7 @@ test.describe('Footer', () => {
   }) => {
     await page.goto('/');
 
-    const footer = page.locator('footer');
+    const footer = page.locator('#footer');
     await expect(footer).toContainText(
       `© ${new Date().getFullYear()} George Burt. All rights reserved.`
     );
@@ -17,7 +17,7 @@ test.describe('Footer', () => {
   }) => {
     await page.goto('/');
 
-    const footer = page.locator('footer');
+    const footer = page.locator('#footer');
     await expect(footer).toContainText('Back to top');
   });
 
@@ -26,7 +26,7 @@ test.describe('Footer', () => {
   }) => {
     await page.goto('/');
 
-    const footer = page.locator('footer');
+    const footer = page.locator('#footer');
     const scrollToTopButton = footer.locator('button');
 
     await scrollToTopButton.click();

@@ -10,7 +10,7 @@ test.describe('Contact Form', () => {
   }) => {
     await page.waitForTimeout(1000);
 
-    await page.route('/contact', async (route) => {
+    await page.route('/api/contact', async (route) => {
       const request = route.request();
       if (request.method() === 'POST') {
         await route.fulfill({
@@ -139,7 +139,7 @@ test.describe('Contact Form', () => {
   }) => {
     await page.route('/contact', async (route) => {
       const request = route.request();
-      const data = JSON.parse((await request.postData()) || '{}');
+      const data = JSON.parse(request.postData() || '{}');
 
       if (data.honeypot) {
         await route.fulfill({

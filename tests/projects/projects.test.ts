@@ -8,7 +8,7 @@ test.describe('Projects Section', () => {
     await page.goto('/#projects');
 
     const projectCards = await page
-      .locator('#projects article')
+      .locator('#projects article.project-card')
       .all();
 
     expect(projectCards).not.toBeNull();
@@ -19,7 +19,7 @@ test.describe('Projects Section', () => {
     await page.goto('/#projects');
 
     const projectCards = await page
-      .locator('#projects article')
+      .locator('#projects article.project-card')
       .all();
 
     for (let i = 0; i < projectCards.length; i++) {

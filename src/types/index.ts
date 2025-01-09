@@ -27,6 +27,21 @@ export type Project = {
   deployedUrl?: string;
 };
 
+export type Activity = {
+  date: string;
+  count: number;
+  level: number;
+};
+
+export type ContributionDay = {
+  date: string;
+  contributionCount: number;
+};
+
+export type ContributionWeek = {
+  contributionDays: ContributionDay[];
+};
+
 export type NavLink = {
   href: string;
   label: string;

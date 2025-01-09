@@ -1,7 +1,7 @@
 import Card from '@/components/ui/card';
 import SocialCard from './social-card';
 import ContactForm from './contact-form';
-import { contactSocials } from '@/lib/constants/contact-constants';
+import { CONTACT_SOCIALS } from '@/lib/constants/contact-constants';
 import { CONTACT_CONTENT } from '@/lib/constants/content-constants';
 
 export default function ContactContent() {
@@ -17,10 +17,10 @@ export default function ContactContent() {
         <ContactForm />
         <div className="flex flex-col flex-wrap gap-4">
           <h3 className="font-semibold">Connect with me</h3>
-          {contactSocials.map((social) => (
+          {CONTACT_SOCIALS.map((social) => (
             <SocialCard
               key={social.href}
-              SocialIcon={social.Icon}
+              iconUrl={social.icon}
               href={social.href}
               user={social.user}
             />

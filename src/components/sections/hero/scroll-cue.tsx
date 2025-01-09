@@ -3,7 +3,7 @@
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useIsMobile } from '@/lib/hooks/use-mobile';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/cn';
 
 export default function ScrollCue() {
   const [isVisible, setIsVisible] = useState(true);
