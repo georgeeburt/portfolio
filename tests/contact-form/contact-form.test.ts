@@ -10,7 +10,7 @@ test.describe('Contact Form', () => {
   }) => {
     await page.waitForTimeout(1000);
 
-    await page.route('/contact', async (route) => {
+    await page.route('/api/contact', async (route) => {
       const request = route.request();
       if (request.method() === 'POST') {
         await route.fulfill({
@@ -48,7 +48,7 @@ test.describe('Contact Form', () => {
   test('should clear user input on successful form submission', async ({
     page
   }) => {
-    await page.route('/contact', (route) => {
+    await page.route('/api/contact', (route) => {
       route.fulfill({
         status: 200,
         body: JSON.stringify({ message: 'Success' })
@@ -103,7 +103,7 @@ test.describe('Contact Form', () => {
     await page.fill('input[name="email"]', 'test@example.com');
     await page.fill('textarea[name="message"]', 'Test message');
 
-    await page.route('/contact', async (route) => {
+    await page.route('/api/contact', async (route) => {
       const request = route.request();
       if (request.method() === 'POST') {
         await route.fulfill({
@@ -137,9 +137,9 @@ test.describe('Contact Form', () => {
   test('should reject form submission when honeypot field is filled', async ({
     page
   }) => {
-    await page.route('/contact', async (route) => {
+    await page.route('/api/contact', async (route) => {
       const request = route.request();
-      const data = JSON.parse((await request.postData()) || '{}');
+      const data = JSON.parse(request.postData() || '{}');
 
       if (data.honeypot) {
         await route.fulfill({

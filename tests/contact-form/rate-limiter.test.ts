@@ -27,7 +27,9 @@ test.describe('Contact Form Rate Limiter', () => {
       await page.fill('#message', 'Test message');
 
       const response = await Promise.all([
-        page.waitForResponse((res) => res.url().includes('/contact')),
+        page.waitForResponse((res) =>
+          res.url().includes('/api/contact')
+        ),
         page.click('input[type="submit"]')
       ]);
 
@@ -47,7 +49,7 @@ test.describe('Contact Form Rate Limiter', () => {
     const response = await Promise.all([
       page.waitForResponse((res) => {
         return (
-          res.url().includes('/contact') &&
+          res.url().includes('/api/contact') &&
           (res.status() === 429 || res.status() === 200)
         );
       }),
