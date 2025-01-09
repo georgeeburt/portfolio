@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { ActivityCalendar } from 'react-activity-calendar';
 import { Tooltip as MuiTooltip } from '@mui/material';
-import fetchContributions from '@/lib/utils/fetch-contributions';
 import type { Activity } from '@/types/index';
 
 export default function GithubContributions() {
@@ -13,7 +12,8 @@ export default function GithubContributions() {
   useEffect(() => {
     async function loadContributions() {
       try {
-        const data = await fetchContributions();
+        const response = await fetch('/api/contributions');
+        const data = await response.json();
         setContributions(data);
         setIsLoading(false);
       } catch (error) {

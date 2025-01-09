@@ -9,8 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "playwright test",
-    "prepare": "husky install"
+    "test": "playwright test"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

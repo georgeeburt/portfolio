@@ -47,7 +47,7 @@ export default function useContactForm() {
         throw new Error('Test error triggered');
       }
 
-      const response = await fetch('/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
