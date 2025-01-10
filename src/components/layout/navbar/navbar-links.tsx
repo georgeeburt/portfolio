@@ -16,9 +16,9 @@ export default function NavbarLinks() {
             className="duration-800 transition-colors hover:text-primary"
             key={link.label}
           >
-            <Link href={link.href} legacyBehavior passHref>
-              <NavigationMenuLink>{link.label}</NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink asChild>
+              <Link href={link.href}>{link.label}</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>

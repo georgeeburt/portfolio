@@ -11,6 +11,7 @@ export default function NavbarIcons() {
           href={link.href}
           target="_blank"
           aria-label={`Visit my ${link.label} profile`}
+          rel="noopener noreferrer"
           className="rounded-md"
         >
           <Image
