@@ -33,6 +33,12 @@ export type Activity = {
   level: number;
 };
 
+export type Contribution = {
+  date: string;
+  count: number;
+  level: number;
+};
+
 export type ContributionDay = {
   date: string;
   contributionCount: number;
