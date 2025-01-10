@@ -70,6 +70,8 @@ export default function RootLayout({
             fill
             priority
             className="hidden object-cover xs:block"
+            aria-hidden="true"
+            loading="eager"
             role="presentation"
           />
           <Image
@@ -78,6 +80,8 @@ export default function RootLayout({
             fill
             priority
             className="object-cover xs:hidden"
+            aria-hidden="true"
+            loading="eager"
             role="presentation"
           />
         </div>
