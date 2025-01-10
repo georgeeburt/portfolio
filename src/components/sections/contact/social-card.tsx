@@ -12,7 +12,12 @@ export default function SocialCard({
   user: string;
 }) {
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer">
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      passHref
+    >
       <div className="flex cursor-pointer gap-3 rounded-lg border border-primary-border bg-primary p-2 font-semibold text-primary-foreground hover:bg-secondary">
         <div className="brightness-0 saturate-0">
           <Image src={iconUrl} width={24} height={24} alt={user} />

@@ -27,21 +27,24 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${oxanium.className} relative min-h-screen overflow-x-hidden bg-background text-foreground antialiased`}
+        aria-hidden="true"
       >
         <div className="fixed inset-0 -z-10">
           <Image
             src="/bg-desktop.svg"
-            alt="Background"
+            alt=""
             fill
             priority
             className="hidden object-cover xs:block"
+            role="presentation"
           />
           <Image
             src="/bg-mobile.svg"
-            alt="Background"
+            alt=""
             fill
             priority
             className="object-cover xs:hidden"
+            role="presentation"
           />
         </div>
         <div className="relative z-0 flex min-h-screen flex-col">

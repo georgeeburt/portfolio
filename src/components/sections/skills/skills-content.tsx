@@ -36,6 +36,7 @@ export default function SkillsContent() {
                 rel="noopener noreferrer"
                 key={skill.label}
                 className="group relative mx-4"
+                passHref
               >
                 <Image
                   height={40}
@@ -61,6 +62,7 @@ export default function SkillsContent() {
             rel="noopener noreferrer"
             key={skill.label}
             className="group relative"
+            passHref
           >
             <Image
               height={40}
