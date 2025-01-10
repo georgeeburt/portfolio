@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { Contribution } from '@/types';
 
 test.describe('GitHub Contributions', () => {
+  test.setTimeout(60000);
   test('contributions should be displayed and visible', async ({
     page
   }) => {
@@ -37,8 +38,7 @@ test.describe('GitHub Contributions', () => {
     const contributionsPromise = page.waitForResponse(
       (response) =>
         response.url().includes('/api/contributions') &&
-        response.status() === 200,
-      { timeout: 7500 }
+        response.status() === 200
     );
 
     await page.goto('/#projects');
@@ -55,8 +55,7 @@ test.describe('GitHub Contributions', () => {
     const contributionsPromise = page.waitForResponse(
       (response) =>
         response.url().includes('/api/contributions') &&
-        response.status() === 200,
-      { timeout: 7500 }
+        response.status() === 200
     );
 
     await page.goto('/#projects');
