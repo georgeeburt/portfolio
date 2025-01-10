@@ -54,6 +54,9 @@ export default {
       },
       animation: {
         marquee: 'marquee 40s linear infinite'
+      },
+      screens: {
+        xs: '480px'
       }
     }
   },

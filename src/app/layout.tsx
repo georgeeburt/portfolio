@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import { Oxanium } from 'next/font/google';
@@ -23,17 +24,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${oxanium.className} overflow-x-hidden antialiased`}
+        className={`${oxanium.className} relative min-h-screen overflow-x-hidden bg-background text-foreground antialiased`}
       >
-        <div className="background" />
-        <Navbar />
-        {children}
+        <div className="fixed inset-0 -z-10">
+          <Image
+            src="/bg-desktop.svg"
+            alt="Background"
+            fill
+            priority
+            className="hidden object-cover xs:block"
+          />
+          <Image
+            src="/bg-mobile.svg"
+            alt="Background"
+            fill
+            priority
+            className="object-cover xs:hidden"
+          />
+        </div>
+        <div className="relative z-0 flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
         <Toaster />
         <Analytics />
         <SpeedInsights />
-        <Footer />
       </body>
     </html>
   );
