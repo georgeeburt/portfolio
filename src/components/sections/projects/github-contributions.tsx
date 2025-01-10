@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { ActivityCalendar } from 'react-activity-calendar';
 import { Tooltip as MuiTooltip } from '@mui/material';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Activity } from '@/types/index';
 
 export default function GithubContributions() {
@@ -22,29 +23,39 @@ export default function GithubContributions() {
     }
     loadContributions();
   }, []);
+
   return (
-    <ActivityCalendar
-      data={contributions}
-      loading={isLoading}
-      weekStart={1}
-      blockSize={12}
-      blockMargin={6}
-      renderBlock={(block, contribution) => (
-        <MuiTooltip
-          title={`${contribution.count} contributions on ${contribution.date}`}
-          followCursor={true}
-          arrow={true}
-        >
-          {block}
-        </MuiTooltip>
-      )}
-      labels={{
-        totalCount: `{{count}} contributions in ${new Date().getFullYear() - 1} & ${new Date().getFullYear()}`
-      }}
-      colorScheme="dark"
-      theme={{
-        dark: ['#3b3b3b', '#7affa7']
-      }}
-    />
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 0.5 }}
+      >
+        <ActivityCalendar
+          data={contributions}
+          loading={isLoading}
+          weekStart={1}
+          blockSize={12}
+          blockMargin={6}
+          renderBlock={(block, contribution) => (
+            <MuiTooltip
+              title={`${contribution.count} contributions on ${contribution.date}`}
+              followCursor={true}
+              arrow={true}
+            >
+              {block}
+            </MuiTooltip>
+          )}
+          labels={{
+            totalCount: `{{count}} contributions in ${new Date().getFullYear() - 1} & ${new Date().getFullYear()}`
+          }}
+          colorScheme="dark"
+          theme={{
+            dark: ['#3b3b3b', '#7affa7']
+          }}
+        />
+      </motion.div>
+    </AnimatePresence>
   );
 }

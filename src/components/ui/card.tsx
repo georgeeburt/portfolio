@@ -16,7 +16,7 @@ export default function Card({
         ease: [0.33, 1, 0.68, 1]
       }}
       viewport={{
-        amount: 0.2
+        amount: 0.01
       }}
       className="relative flex flex-col gap-8 rounded-lg border border-white/10 bg-card px-8 py-8 shadow-lg backdrop-blur-md"
     >
