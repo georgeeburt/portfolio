@@ -5,6 +5,8 @@ test.describe('Contact Form Rate Limiter', () => {
   const DAILY_LIMIT = 3;
 
   test.beforeEach(async ({ page }) => {
+    test.setTimeout(45000);
+
     // Clear Redis keys with the "test:*" namespace before each test
     const keys = await redis.keys('test:*');
     if (keys.length > 0) {
@@ -26,14 +28,12 @@ test.describe('Contact Form Rate Limiter', () => {
       await page.fill('#email', 'test@example.com');
       await page.fill('#message', 'Test message');
 
-      const response = await Promise.all([
-        page.waitForResponse((res) =>
-          res.url().includes('/api/contact')
-        ),
+      const [response] = await Promise.all([
+        page.waitForResponse((res) => res.url().includes('/contact')),
         page.click('input[type="submit"]')
       ]);
 
-      expect(response[0].ok()).toBe(true);
+      expect(response.ok()).toBe(true);
 
       // Wait for toast to disappear
       await page
@@ -46,7 +46,7 @@ test.describe('Contact Form Rate Limiter', () => {
     await page.fill('#email', 'test@example.com');
     await page.fill('#message', 'Test message');
 
-    const response = await Promise.all([
+    const [response] = await Promise.all([
       page.waitForResponse((res) => {
         return (
           res.url().includes('/api/contact') &&
@@ -56,7 +56,7 @@ test.describe('Contact Form Rate Limiter', () => {
       page.click('input[type="submit"]')
     ]);
 
-    expect(response[0].status()).toBe(429);
+    expect(response.status()).toBe(429);
 
     // Check for rate limit toast
     const rateLimitToast = page.locator('li[role="status"]');

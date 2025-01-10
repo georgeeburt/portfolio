@@ -13,7 +13,7 @@ import {
 export default function SkillsContent() {
   return (
     <Card>
-      <h2 className="text-[3rem] font-semibold">
+      <h2 className="text-[3rem] font-semibold underline decoration-primary underline-offset-8">
         {SKILLS_CONTENT.title}
       </h2>
       {SKILLS_CONTENT.content.map((paragraph, index) => (
@@ -36,6 +36,7 @@ export default function SkillsContent() {
                 rel="noopener noreferrer"
                 key={skill.label}
                 className="group relative mx-4"
+                passHref
               >
                 <Image
                   height={40}
@@ -61,6 +62,7 @@ export default function SkillsContent() {
             rel="noopener noreferrer"
             key={skill.label}
             className="group relative"
+            passHref
           >
             <Image
               height={40}

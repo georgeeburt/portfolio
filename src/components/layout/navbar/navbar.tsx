@@ -13,7 +13,7 @@ export default function Navbar() {
         className="object-contain"
         priority
       />
-      <nav className="flex items-center gap-8">
+      <nav className="flex gap-8">
         <NavbarLinks />
         <NavbarIcons />
       </nav>

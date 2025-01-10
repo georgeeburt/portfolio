@@ -4,13 +4,14 @@ import { SOCIAL_LINKS } from '@/lib/constants/navigation-constants';
 
 export default function NavbarIcons() {
   return (
-    <div className="flex gap-4">
+    <div className="flex items-center gap-4">
       {SOCIAL_LINKS.map((link) => (
         <Link
           key={link.label}
           href={link.href}
           target="_blank"
           aria-label={`Visit my ${link.label} profile`}
+          rel="noopener noreferrer"
           className="rounded-md"
         >
           <Image
