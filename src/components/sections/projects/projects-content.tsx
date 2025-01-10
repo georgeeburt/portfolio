@@ -8,7 +8,7 @@ import GithubContributions from './github-contributions';
 export default function ProjectsContent() {
   return (
     <Card>
-      <h2 className="text-[3rem] font-semibold">
+      <h2 className="text-[3rem] font-semibold underline decoration-primary underline-offset-8">
         {PROJECTS_CONTENT.title}
       </h2>
       {PROJECTS_CONTENT.content.map((paragraph, index) => (
@@ -21,7 +21,7 @@ export default function ProjectsContent() {
         ))}
       </div>
       <Separator />
-      <h2 className="text-[1.5rem] font-semibold md:text-left md:text-[1.75rem]">
+      <h2 className="text-[1.5rem] font-semibold underline decoration-primary underline-offset-8 md:text-left md:text-[1.75rem]">
         Contributions
       </h2>
       <GithubContributions />
