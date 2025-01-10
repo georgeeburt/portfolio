@@ -10,10 +10,13 @@ test.describe('Navbar', () => {
   }) => {
     await page.click('a[href="/#about"]');
 
+    await page.waitForFunction(
+      () => window.location.hash === '#about'
+    );
+
     const aboutSection = page.locator('#about');
     await expect(aboutSection).toBeVisible();
 
-    await page.waitForTimeout(1000);
     expect(page.url()).toContain('#about');
   });
 
@@ -22,10 +25,13 @@ test.describe('Navbar', () => {
   }) => {
     await page.click('a[href="/#skills"]');
 
+    await page.waitForFunction(
+      () => window.location.hash === '#skills'
+    );
+
     const aboutSection = page.locator('#skills');
     await expect(aboutSection).toBeVisible();
 
-    await page.waitForTimeout(1000);
     expect(page.url()).toContain('#skills');
   });
 
@@ -34,10 +40,13 @@ test.describe('Navbar', () => {
   }) => {
     await page.click('a[href="/#projects"]');
 
+    await page.waitForFunction(
+      () => window.location.hash === '#projects'
+    );
+
     const aboutSection = page.locator('#projects');
     await expect(aboutSection).toBeVisible();
 
-    await page.waitForTimeout(1000);
     expect(page.url()).toContain('#projects');
   });
 
@@ -46,10 +55,13 @@ test.describe('Navbar', () => {
   }) => {
     await page.click('a[href="/#contact"]');
 
+    await page.waitForFunction(
+      () => window.location.hash === '#contact'
+    );
+
     const aboutSection = page.locator('#contact');
     await expect(aboutSection).toBeVisible();
 
-    await page.waitForTimeout(1000);
     expect(page.url()).toContain('#contact');
   });
 

@@ -15,7 +15,7 @@ export default function ProjectsContent() {
         <p key={paragraph.id || index}>{paragraph.text}</p>
       ))}
       <Separator />
-      <div className="flex flex-col gap-8">
+      <div className="m-2 flex flex-col gap-16">
         {PROJECTS.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}

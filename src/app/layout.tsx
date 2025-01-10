@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   authors: [
     { name: 'George Burt', url: 'https://burtsoftwaresolutions.dev' }
   ],
+  metadataBase: new URL('https://burtsoftwaresolutions.dev'),
   openGraph: {
     type: 'website',
     locale: 'en_GB',

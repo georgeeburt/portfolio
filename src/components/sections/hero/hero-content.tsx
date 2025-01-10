@@ -43,7 +43,7 @@ export default function HeroContent() {
     >
       <motion.div style={{ opacity: scrollOpacity, y }}>
         <h1 className="text-[2rem] font-bold md:text-[2.5rem] lg:text-[4rem]">
-          Hello, I&apos;m{' '}
+          Hi, I&apos;m{' '}
           <span className="bg-green-gradient bg-clip-text text-transparent">
             George Burt
           </span>
