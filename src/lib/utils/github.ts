@@ -5,7 +5,7 @@ import type {
 import redis from '../config/redis';
 
 const CACHE_KEY = 'github:contributions';
-const CACHE_TTL = 21600;
+const CACHE_TTL = 90000;
 
 export async function fetchGithubContributions() {
   const now = new Date();

@@ -1,19 +1,29 @@
-import { NextResponse } from 'next/server';
-import { getContributionsWithCache } from '@/lib/utils/github';
+import { NextRequest } from 'next/server';
+import { fetchGithubContributions } from '@/lib/utils/github';
+import redis from '@/lib/config/redis';
 
-export async function GET(request: Request) {
+const CACHE_KEY = 'github:contributions';
+const CACHE_TTL = 90000;
+
+export async function GET(request: NextRequest) {
   const authHeader = request.headers.get('authorization');
 
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return new NextResponse('Unauthorized', { status: 401 });
+    return Response.json('Unauthorized', { status: 401 });
   }
 
   try {
-    await getContributionsWithCache();
-    return NextResponse.json({ success: true });
+    const freshData = await fetchGithubContributions();
+    await redis.setex(
+      CACHE_KEY,
+      CACHE_TTL,
+      JSON.stringify(freshData)
+    );
+
+    return Response.json({ success: true });
   } catch (error) {
     console.error('Failed to cache contributions', error);
-    return NextResponse.json(
+    return Response.json(
       { error: 'Failed to update contributions cache' },
       { status: 500 }
     );
