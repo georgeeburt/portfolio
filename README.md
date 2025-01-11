@@ -3,7 +3,7 @@
 
 ![Copyright](https://img.shields.io/badge/©-All%20Rights%20Reserved-orange)
 [![Vercel Deploy](https://deploy-badge.vercel.app/vercel/reactions-demo)](https://www.burtsoftwaresolutions.dev/)
-[![Tests](https://github.com/georgeeburt/portfolio/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/georgeeburt/portfolio/actions/workflows/tests.yml)
+[![Tests](https://github.com/georgeeburt/portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/georgeeburt/portfolio/actions/workflows/tests.yml)
 [![Code Style](https://img.shields.io/badge/code%20style-prettier-%23FF69B4?style=flat&labelColor=gray)](https://github.com/prettier/prettier)
 
   <p>This repository contains the source code for my personal portfolio website, showcasing my projects, skills, and experiences as a Full-Stack Developer. Built with Next.js, TypeScript and TailwindCSS, deployed on Vercel.</p>
