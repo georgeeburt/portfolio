@@ -62,7 +62,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={`${oxanium.className} relative min-h-screen overflow-x-hidden bg-background text-foreground antialiased`}
-        aria-hidden="true"
       >
         <div className="fixed inset-0 -z-10">
           <Image
