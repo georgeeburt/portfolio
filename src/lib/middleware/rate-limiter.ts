@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import redis from '../config/redis';
 
 const WINDOW_SIZE_IN_SECONDS = 86400;
@@ -23,7 +23,7 @@ export async function rateLimiter(request: NextRequest) {
 
     const count = parseInt(currentRequestCount);
     if (count >= MAX_REQUESTS_PER_WINDOW) {
-      return NextResponse.json(
+      return Response.json(
         { message: 'Rate limit exceeded. Please try again later.' },
         {
           status: 429,

@@ -1,5 +1,5 @@
 import { rateLimiter } from '@/lib/middleware/rate-limiter';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
@@ -11,26 +11,26 @@ export async function POST(request: NextRequest): Promise<Response> {
     const { name, email, message, honeyPot } = await request.json();
 
     if (!name || !email || !message) {
-      return new NextResponse(
-        JSON.stringify({
+      return Response.json(
+        {
           message: 'Name, email, message are all required'
-        }),
+        },
         { status: 400 }
       );
     }
 
     if (honeyPot?.trim()) {
-      return new NextResponse(
-        JSON.stringify({
+      return Response.json(
+        {
           message: 'Spam detected'
-        }),
+        },
         { status: 400 }
       );
     }
 
     if (process.env.NODE_ENV === 'development') {
-      return new NextResponse(
-        JSON.stringify({ message: 'Development Mode' }),
+      return Response.json(
+        { message: 'Development Mode' },
         { status: 200 }
       );
     }
@@ -54,25 +54,25 @@ export async function POST(request: NextRequest): Promise<Response> {
     const data = await res.json();
 
     if (res.ok) {
-      return new NextResponse(
-        JSON.stringify({ message: 'Success', data }),
+      return Response.json(
+        { message: 'Success', data },
         {
           status: 200
         }
       );
     } else {
-      return new NextResponse(
-        JSON.stringify({
+      return Response.json(
+        {
           message: 'Failed to send email',
           error: data
-        }),
+        },
         { status: res.status }
       );
     }
   } catch (error) {
     console.error('Error sending message:', error);
-    return new NextResponse(
-      JSON.stringify({ message: 'Error sending message' }),
+    return Response.json(
+      { message: 'Error sending message' },
       {
         status: 500
       }
