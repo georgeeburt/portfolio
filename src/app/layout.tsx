@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   authors: [
     { name: 'George Burt', url: 'https://burtsoftwaresolutions.dev' }
   ],
+  metadataBase: new URL('https://burtsoftwaresolutions.dev'),
   openGraph: {
     type: 'website',
     locale: 'en_GB',
@@ -70,6 +71,8 @@ export default function RootLayout({
             fill
             priority
             className="hidden object-cover xs:block"
+            aria-hidden="true"
+            loading="eager"
             role="presentation"
           />
           <Image
@@ -78,6 +81,8 @@ export default function RootLayout({
             fill
             priority
             className="object-cover xs:hidden"
+            aria-hidden="true"
+            loading="eager"
             role="presentation"
           />
         </div>

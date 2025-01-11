@@ -23,12 +23,9 @@ test.describe('Contact Form', () => {
       }
     });
 
-    await page.fill('input[name="name"]', 'Test User');
-    await page.fill('input[name="email"]', 'test@example.com');
-    await page.fill(
-      'textarea[name="message"]',
-      'Test message content'
-    );
+    await page.fill('#name', 'Test User');
+    await page.fill('#email', 'test@example.com');
+    await page.fill('#message', 'Test message content');
 
     await Promise.all([
       page.click('input[type="submit"]'),
@@ -55,12 +52,9 @@ test.describe('Contact Form', () => {
       });
     });
 
-    await page.fill('input[name="name"]', 'Test User');
-    await page.fill('input[name="email"]', 'test@example.com');
-    await page.fill(
-      'textarea[name="message"]',
-      'Test message content'
-    );
+    await page.fill('#name', 'Test User');
+    await page.fill('#email', 'test@example.com');
+    await page.fill('#message', 'Test message content');
 
     await page.click('input[type="submit"]');
     await page.waitForSelector(
@@ -68,18 +62,16 @@ test.describe('Contact Form', () => {
     );
 
     // Verify form reset
-    await expect(page.locator('input[name="name"]')).toHaveValue('');
-    await expect(page.locator('input[name="email"]')).toHaveValue('');
-    await expect(
-      page.locator('textarea[name="message"]')
-    ).toHaveValue('');
+    await expect(page.locator('#name')).toHaveValue('');
+    await expect(page.locator('#email')).toHaveValue('');
+    await expect(page.locator('#message')).toHaveValue('');
   });
 
   test('should show error toast when user misses required fields', async ({
     page
   }) => {
-    await page.fill('input[name="name"]', 'George Martin Burt');
-    await page.fill('input[name="email"]', 'georgeeburt@icloud.com');
+    await page.fill('#name', 'George Martin Burt');
+    await page.fill('#email', 'georgeeburt@icloud.com');
 
     await page.click('input[type="submit"]', {
       timeout: 10000
@@ -99,9 +91,9 @@ test.describe('Contact Form', () => {
   }) => {
     await page.waitForTimeout(1000);
 
-    await page.fill('input[name="name"]', 't3st');
-    await page.fill('input[name="email"]', 'test@example.com');
-    await page.fill('textarea[name="message"]', 'Test message');
+    await page.fill('#name', 't3st');
+    await page.fill('#email', 'test@example.com');
+    await page.fill('#message', 'Test message');
 
     await page.route('/api/contact', async (route) => {
       const request = route.request();
@@ -154,9 +146,9 @@ test.describe('Contact Form', () => {
       }
     });
 
-    await page.fill('input[name="name"]', 'Test User');
-    await page.fill('input[name="email"]', 'test@example.com');
-    await page.fill('textarea[name="message"]', 'Test message');
+    await page.fill('#name', 'Test User');
+    await page.fill('#email', 'test@example.com');
+    await page.fill('#message', 'Test message');
 
     // Temporarily make honeypot field visible and fill it
     await page.evaluate(() => {
@@ -191,16 +183,13 @@ test.describe('Contact Form', () => {
     await expect(toastLocator).toBeVisible({ timeout: 10000 });
     await expect(toastLocator).toContainText('Spam detected');
 
-    // Verify form data wasn't cleared
-    await expect(page.locator('input[name="name"]')).toHaveValue(
-      'Test User'
-    );
-    await expect(page.locator('input[name="email"]')).toHaveValue(
+    await expect(page.locator('#name')).toHaveValue('Test User');
+    await expect(page.locator('#email')).toHaveValue(
       'test@example.com'
     );
-    await expect(
-      page.locator('textarea[name="message"]')
-    ).toHaveValue('Test message');
+    await expect(page.locator('#message')).toHaveValue(
+      'Test message'
+    );
   });
 
   test('should verify honeypot field is hidden from view', async ({

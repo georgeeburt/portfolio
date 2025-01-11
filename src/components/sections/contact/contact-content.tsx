@@ -7,7 +7,7 @@ import { CONTACT_CONTENT } from '@/lib/constants/content-constants';
 export default function ContactContent() {
   return (
     <Card>
-      <h2 className="text-[3rem] font-semibold">
+      <h2 className="text-[3rem] font-semibold underline decoration-primary underline-offset-8">
         {CONTACT_CONTENT.title}
       </h2>
       {CONTACT_CONTENT.content.map((paragraph, index) => (

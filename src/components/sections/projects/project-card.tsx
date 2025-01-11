@@ -6,7 +6,7 @@ export default function ProjectCard({
 }: Readonly<{ project: Project }>) {
   const { title, description, image, techStack } = project;
   return (
-    <article className="project-card flex h-full flex-col items-center rounded-lg border border-white/10">
+    <article className="project-card flex h-full flex-col items-center rounded-lg border border-primary/30">
       <Image
         height={1909}
         width={933}
