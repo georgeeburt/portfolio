@@ -31,11 +31,12 @@ export default function ScrollCue() {
   return (
     <div
       className={cn(
-        'absolute left-1/2 flex -translate-x-1/2 animate-bounce flex-col items-center text-muted transition-all duration-1000 ease-in-out',
-        isMobile ? 'bottom-24' : 'bottom-7',
+        'absolute flex animate-pulse flex-col items-center justify-center text-muted transition-all duration-1000 ease-in-out',
+        isMobile ? 'bottom-24' : 'bottom-6',
         isVisible
           ? 'translate-y-0 opacity-100'
-          : 'pointer-events-none hidden translate-y-10 opacity-0'
+          : 'pointer-events-none hidden translate-y-10 opacity-0',
+        'left-1/2 -translate-x-1/2 transform'
       )}
     >
       <p className="lg:text-sm">Scroll Down</p>
