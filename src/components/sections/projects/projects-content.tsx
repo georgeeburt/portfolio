@@ -21,7 +21,10 @@ export default function ProjectsContent() {
         ))}
       </div>
       <Separator />
-      <div data-testid="contributions">
+      <div
+        className="flex flex-col gap-8"
+        data-testid="contributions"
+      >
         <h2 className="text-[1.5rem] font-semibold underline decoration-primary underline-offset-8 md:text-left md:text-[1.75rem]">
           Contributions
         </h2>

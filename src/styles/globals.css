@@ -39,3 +39,20 @@ html {
   background-color: hsla(140, 100%, 74.1%, 0.85);
   color: black;
 }
+
+:-webkit-scrollbar {
+  width: 8px;  /* Change height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #79F8A3;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #79F8A3;  /* Thumb (scroll handle) color */
+  border-radius: 4px;  /* Round edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #79F8A3;  /* Darker on hover */
+}
