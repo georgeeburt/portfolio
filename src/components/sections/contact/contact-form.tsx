@@ -25,7 +25,7 @@ export default function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleFormChange}
-          className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 lg:w-4/6"
+          className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 focus:outline-none focus:ring-2 focus:ring-primary lg:w-4/6"
         />
       </p>
       <p className="flex flex-col gap-2">
@@ -38,7 +38,7 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleFormChange}
-          className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 lg:w-4/6"
+          className="rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 focus:outline-none focus:ring-2 focus:ring-primary lg:w-4/6"
         />
       </p>
       <p className="flex flex-col gap-2">
@@ -51,7 +51,7 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleFormChange}
-          className="resize-none rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800"
+          className="resize-none rounded-lg border border-white/10 bg-white/5 p-1 outline-zinc-800 focus:outline-none focus:ring-2 focus:ring-primary"
         ></textarea>
       </p>
       {/* Honeypot field */}

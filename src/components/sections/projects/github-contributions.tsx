@@ -32,29 +32,33 @@ export default function GithubContributions() {
         exit={{ opacity: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <ActivityCalendar
-          data={contributions}
-          loading={isLoading}
-          weekStart={1}
-          blockSize={12}
-          blockMargin={6}
-          renderBlock={(block, contribution) => (
-            <MuiTooltip
-              title={`${contribution.count} contributions on ${contribution.date}`}
-              followCursor={true}
-              arrow={true}
-            >
-              {block}
-            </MuiTooltip>
-          )}
-          labels={{
-            totalCount: `{{count}} contributions in ${new Date().getFullYear() - 1} & ${new Date().getFullYear()}`
-          }}
-          colorScheme="dark"
-          theme={{
-            dark: ['#3b3b3b', '#7affa7']
-          }}
-        />
+        <div className="overflow-x-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary">
+          <div className="w-max">
+            <ActivityCalendar
+              data={contributions}
+              loading={isLoading}
+              weekStart={1}
+              blockSize={12}
+              blockMargin={6}
+              renderBlock={(block, contribution) => (
+                <MuiTooltip
+                  title={`${contribution.count} contributions on ${contribution.date}`}
+                  followCursor={true}
+                  arrow={true}
+                >
+                  {block}
+                </MuiTooltip>
+              )}
+              labels={{
+                totalCount: `{{count}} contributions in ${new Date().getFullYear() - 1} & ${new Date().getFullYear()}`
+              }}
+              colorScheme="dark"
+              theme={{
+                dark: ['#3b3b3b', '#7affa7']
+              }}
+            />
+          </div>
+        </div>
       </motion.div>
     </AnimatePresence>
   );
