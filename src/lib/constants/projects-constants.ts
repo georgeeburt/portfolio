@@ -4,8 +4,8 @@ export const PROJECTS: Project[] = [
   {
     title: 'Chainalyze',
     description: `Chainalyze is a blockchain analytics platform that
-            visualizes cryptocurrency transaction flows and wallet
-            be interactive network graphs, real-time data monitoring, and
+            visualizes cryptocurrency transaction flows with
+            interactive price charts, real-time data monitoring, and
             customisable analytics dashboards. Users can track
             transaction patterns, identify key wallets, and generate
             detailed financial reports. The platform integrates
