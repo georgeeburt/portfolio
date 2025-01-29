@@ -1,18 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 export default function Card({
   children
 }: {
   children: React.ReactNode;
 }) {
+  const isMobile = useIsMobile();
   return (
     <motion.section
       initial={{ x: -200, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{
-        duration: 1.7,
+        duration: isMobile ? 1 : 1.5,
         ease: [0.4, 0, 0.2, 1]
       }}
       viewport={{
