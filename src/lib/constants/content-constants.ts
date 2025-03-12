@@ -24,8 +24,8 @@ export const SKILLS_CONTENT: SectionContent = {
   ]
 };
 
-export const PROJECTS_CONTENT: SectionContent = {
-  title: 'Projects',
+export const WORK_CONTENT: SectionContent = {
+  title: 'Work',
   content: [
     {
       text: 'Explore a selection of projects I contributed to below, showcasing innovative solutions, collaborative efforts, and cutting-edge technologies. Each project reflects my dedication to creating impactful and efficient systems, blending creativity with technical expertise.'
