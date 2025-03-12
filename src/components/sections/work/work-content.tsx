@@ -1,5 +1,5 @@
 import Card from '@/components/ui/card';
-import { PROJECTS } from '@/lib/constants/projects-constants';
+import { PROJECTS } from '@/lib/constants/work-constants';
 import { Separator } from '@/components/ui/separator';
 import ProjectCard from './work-card';
 import { WORK_CONTENT } from '@/lib/constants/content-constants';
