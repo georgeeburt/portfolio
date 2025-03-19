@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
@@ -61,48 +60,43 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <Head>
-        <link
-          rel="preload"
-          href="/images/backgrounds/bg-desktop.svg"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="/images/backgrounds/bg-mobile.svg"
-          as="image"
-        />
-      </Head>
       <body
         className={`${oxanium.className} relative min-h-screen overflow-x-hidden bg-background text-foreground antialiased`}
       >
+        {/* Background Images Container */}
         <div className="fixed inset-0 -z-10">
-          <Image
-            src="/images/backgrounds/bg-desktop.svg"
-            alt="desktop background"
-            fill
-            priority
-            className="hidden object-cover xs:block"
-            aria-hidden="true"
-            loading="eager"
-            role="presentation"
-          />
-          <Image
-            src="/images/backgrounds/bg-mobile.svg"
-            alt="mobile background"
-            fill
-            priority
-            className="object-cover xs:hidden"
-            aria-hidden="true"
-            loading="eager"
-            role="presentation"
-          />
+          <div className="absolute inset-0">
+            <Image
+              src="/images/backgrounds/bg-desktop.svg"
+              alt="desktop background"
+              fill
+              priority
+              className="hidden object-cover xs:block"
+              aria-hidden="true"
+              loading="eager"
+              role="presentation"
+            />
+          </div>
+          <div className="absolute inset-0">
+            <Image
+              src="/images/backgrounds/bg-mobile.svg"
+              alt="mobile background"
+              fill
+              priority
+              className="object-cover xs:hidden"
+              aria-hidden="true"
+              loading="eager"
+              role="presentation"
+            />
+          </div>
         </div>
+
         <div className="relative z-0 flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
+
         <Toaster />
         <Analytics />
         <SpeedInsights />
