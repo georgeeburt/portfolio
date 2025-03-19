@@ -1,17 +1,17 @@
 import Card from '@/components/ui/card';
-import { PROJECTS } from '@/lib/constants/projects-constants';
+import { PROJECTS } from '@/lib/constants/work-constants';
 import { Separator } from '@/components/ui/separator';
-import ProjectCard from './project-card';
-import { PROJECTS_CONTENT } from '@/lib/constants/content-constants';
+import ProjectCard from './work-card';
+import { WORK_CONTENT } from '@/lib/constants/content-constants';
 import GithubContributions from './github-contributions';
 
 export default function ProjectsContent() {
   return (
     <Card>
       <h2 className="text-[3rem] font-semibold underline decoration-primary underline-offset-8">
-        {PROJECTS_CONTENT.title}
+        {WORK_CONTENT.title}
       </h2>
-      {PROJECTS_CONTENT.content.map((paragraph, index) => (
+      {WORK_CONTENT.content.map((paragraph, index) => (
         <p key={paragraph.id || index}>{paragraph.text}</p>
       ))}
       <Separator />

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { PROJECTS } from '@/lib/constants/projects-constants';
+import { PROJECTS } from '@/lib/constants/work-constants';
 
 test.describe('Projects Section', () => {
   test('should display the correct number of projects', async ({

@@ -4,7 +4,7 @@ import AboutContent from '@/components/sections/about/about-content';
 import SkillsContent from '@/components/sections/skills/skills-content';
 import ScrollCue from '@/components/sections/hero/scroll-cue';
 import ContactContent from '@/components/sections/contact/contact-content';
-import ProjectsContent from '@/components/sections/projects/projects-content';
+import WorkContent from '@/components/sections/work/work-content';
 
 export default function RootContent() {
   return (
@@ -22,7 +22,7 @@ export default function RootContent() {
             <SkillsContent />
           </section>
           <section id="projects" className="py-12 md:py-20">
-            <ProjectsContent />
+            <WorkContent />
           </section>
           <section id="contact" className="py-12 md:py-20">
             <ContactContent />
