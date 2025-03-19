@@ -23,9 +23,7 @@ html {
     --destructive: 360 71% 59%;
     --radius: 0.4rem;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -35,24 +33,24 @@ html {
   }
 }
 
-::selection {
-  background-color: hsla(140, 100%, 74.1%, 0.85);
-  color: black;
-}
-
-:-webkit-scrollbar {
-  width: 8px;  /* Change height of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #79F8A3;
+  background-color: #252525;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #79F8A3;  /* Thumb (scroll handle) color */
-  border-radius: 4px;  /* Round edges */
+  background-color: #7AFFA7;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #79F8A3;  /* Darker on hover */
+  background-color: #5dbb7e;
+}
+
+::selection {
+  background-color: hsla(140, 100%, 74.1%, 0.85);
+  color: black;
 }
