@@ -35,19 +35,19 @@ test.describe('Navbar', () => {
     expect(page.url()).toContain('#skills');
   });
 
-  test('should navigate to the projects section when the project link is clicked', async ({
+  test('should navigate to the work section when the project link is clicked', async ({
     page
   }) => {
-    await page.click('a[href="/#projects"]');
+    await page.click('a[href="/#work"]');
 
     await page.waitForFunction(
-      () => window.location.hash === '#projects'
+      () => window.location.hash === '#work'
     );
 
-    const aboutSection = page.locator('#projects');
+    const aboutSection = page.locator('#work');
     await expect(aboutSection).toBeVisible();
 
-    expect(page.url()).toContain('#projects');
+    expect(page.url()).toContain('#work');
   });
 
   test('should navigate to the contact section when the contact link is clicked', async ({
