@@ -5,7 +5,7 @@ import ProjectCard from './work-card';
 import { WORK_CONTENT } from '@/lib/constants/content-constants';
 import GithubContributions from './github-contributions';
 
-export default function ProjectsContent() {
+export default function WorkContent() {
   return (
     <Card>
       <h2 className="text-[3rem] font-semibold underline decoration-primary underline-offset-8">

@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { PROJECTS } from '@/lib/constants/work-constants';
 
-test.describe('Projects Section', () => {
-  test('should display the correct number of projects', async ({
+test.describe('Work Section', () => {
+  test('should display the correct number of work', async ({
     page
   }) => {
-    await page.goto('/#projects');
+    await page.goto('/#work');
 
     const projectCards = await page
-      .locator('#projects article.project-card')
+      .locator('#work article.project-card')
       .all();
 
     expect(projectCards).not.toBeNull();
@@ -16,10 +16,10 @@ test.describe('Projects Section', () => {
   });
 
   test('should display all project details', async ({ page }) => {
-    await page.goto('/#projects');
+    await page.goto('/#work');
 
     const projectCards = await page
-      .locator('#projects article.project-card')
+      .locator('#work article.project-card')
       .all();
 
     for (let i = 0; i < projectCards.length; i++) {

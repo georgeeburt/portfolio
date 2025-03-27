@@ -6,7 +6,7 @@
 [![Tests](https://github.com/georgeeburt/portfolio/actions/workflows/tests.yml/badge.svg)](https://github.com/georgeeburt/portfolio/actions/workflows/tests.yml)
 [![Code Style](https://img.shields.io/badge/code%20style-prettier-%23FF69B4?style=flat&labelColor=gray)](https://github.com/prettier/prettier)
 
-  <p>This repository contains the source code for my personal portfolio website, showcasing my projects, skills, and experiences as a Full-Stack Developer. Built with Next.js, TypeScript and TailwindCSS, deployed on Vercel.</p>
+  <p>This repository contains the source code for my personal portfolio website, showcasing my work, skills, and experiences as a Full-Stack Developer. Built with Next.js, TypeScript and TailwindCSS, deployed on Vercel.</p>
 
 [![Next](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 ![TypeScript](https://img.shields.io/badge/TypeScript%20-%20%233178C6?style=for-the-badge&logo=typescript&logoColor=%23ffffff&link=https%3A%2F%2Fwww.typescriptlang.org%2F)

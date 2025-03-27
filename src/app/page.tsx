@@ -21,7 +21,7 @@ export default function RootContent() {
           <section id="skills" className="py-12 md:py-20">
             <SkillsContent />
           </section>
-          <section id="projects" className="py-12 md:py-20">
+          <section id="work" className="py-12 md:py-20">
             <WorkContent />
           </section>
           <section id="contact" className="py-12 md:py-20">

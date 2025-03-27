@@ -6,7 +6,7 @@ test.describe('GitHub Contributions', () => {
   test('contributions should be displayed and visible', async ({
     page
   }) => {
-    await page.goto('/#projects');
+    await page.goto('/#work');
 
     await page.waitForLoadState('networkidle');
 
@@ -20,7 +20,7 @@ test.describe('GitHub Contributions', () => {
   test('should display correct text for contribution count in the last year', async ({
     page
   }) => {
-    await page.goto('/#projects');
+    await page.goto('/#work');
 
     const contributions = page.getByTestId('contributions');
 
@@ -41,7 +41,7 @@ test.describe('GitHub Contributions', () => {
         response.status() === 200
     );
 
-    await page.goto('/#projects');
+    await page.goto('/#work');
     await page.waitForLoadState('networkidle');
 
     const response = await contributionsPromise;
@@ -58,7 +58,7 @@ test.describe('GitHub Contributions', () => {
         response.status() === 200
     );
 
-    await page.goto('/#projects');
+    await page.goto('/#work');
     await page.waitForLoadState('networkidle');
 
     const contributionSection = page.getByTestId('contributions');
