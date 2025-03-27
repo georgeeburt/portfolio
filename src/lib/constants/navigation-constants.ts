@@ -4,7 +4,7 @@ import type { SocialLink } from '@/types';
 export const NAV_LINKS: NavLink[] = [
   { href: '/#about', label: 'About' },
   { href: '/#skills', label: 'Skills' },
-  { href: '/#projects', label: 'Projects' },
+  { href: '/#work', label: 'Work' },
   { href: '/#contact', label: 'Contact' }
 ];
 
